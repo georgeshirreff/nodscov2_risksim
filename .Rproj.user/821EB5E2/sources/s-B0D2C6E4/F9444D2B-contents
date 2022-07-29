@@ -201,5 +201,5 @@ ggsave(matrixplot_durmins_repos
 
 ggsave(matrixplot_prod_repos
        , filename = paste0("output/Fig_contactmatrix.pdf")
-       , units = "cm", width = 40, height = 12, dpi = 100, device = "pdf")
+       , units = "cm", width = 40, height = 12, dpi = 100, device = "pdf") 
 

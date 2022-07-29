@@ -280,7 +280,7 @@ gg_nets <- gg_nets[Label_tib$newname]
 
 ggsave(filename = "output/Fig_networks.pdf"
        , arrangeGrob(grobs = gg_nets, ncol = 3)
-       , units = "cm", width = 40, height = 60, dpi = 100, device = "pdf")
+       , units = "cm", width = 40, height = 60, dpi = 100, device = "pdf") 
 
 
         

@@ -29,6 +29,6 @@ cluster3(tib_forpca %>% mutate_if(is.numeric, function(x) sqrt(x))) #sqrt transf
 
 ggsave("output/Fig_clustering.pdf", device = "pdf"
        , width = 20, height = 15, units = "cm")
-
+ 
 
   

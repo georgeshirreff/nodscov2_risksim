@@ -410,4 +410,4 @@ DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
 ggsave("output/Fig_DARreduction_levels.pdf", device = "pdf"
        , width = 30, height = 20, units = "cm")
 
-
+ 

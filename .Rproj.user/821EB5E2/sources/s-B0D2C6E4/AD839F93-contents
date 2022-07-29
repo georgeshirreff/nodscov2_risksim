@@ -459,3 +459,4 @@ DR_pctChange_itt_bar %>%
 
 DR_pctChange_itt_bar %>% 
   filter(combcat %in% c("Patient"))
+ 

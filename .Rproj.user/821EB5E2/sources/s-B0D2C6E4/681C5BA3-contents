@@ -475,5 +475,5 @@ DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
 ggsave(paste0("output/Fig_asensitivity.pdf"), device = "pdf"
        , width = 20, height = 30, units = "cm")
 
-
+ 
 

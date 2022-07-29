@@ -3,7 +3,7 @@
     "path": "~/nodscov2_risksim/FIGB_makeContactPerHourMatrix.R",
     "project_path": "FIGB_makeContactPerHourMatrix.R",
     "type": "r_source",
-    "hash": "552441655",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1659086537637.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,75",
-        "scrollLine": "0"
+        "cursorPosition": "203,75",
+        "scrollLine": "189"
     },
     "folds": "",
-    "lastKnownWriteTime": 1659103615,
+    "lastKnownWriteTime": 1659104282,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1659103615395,
+    "last_content_update": 1659104282011,
     "read_only": false,
     "read_only_alternatives": []
 }

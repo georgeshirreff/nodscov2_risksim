@@ -62,7 +62,7 @@ id_function_partial <- id_function_complete %>%
 timespent_mins_partial <- timespent_mins_complete %>% 
   filter(id %in% sampled_ids)
 
-list_ward_partial %>% 
+list_ward_partial %>%  
   write_csv("input/list_ward_partial.csv")
 
 

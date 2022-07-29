@@ -348,5 +348,5 @@ complete_DR_status %>%
                         , newname = newID
                         # , newname = paste0(newID, "\n(", COVIDstat, ")")
               ) %>%
-              mutate(newname = factor(newname, levels = newname)))
+              mutate(newname = factor(newname, levels = newname))) 
   
