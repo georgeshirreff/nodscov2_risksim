@@ -1,0 +1,17 @@
+ward_id,hosp_ward,list_ward_name
+15,APHP AMBROISE PARÉ_Urgences,Ambroise_Pare-Urgence-20200430-20200501
+21,CHU DE BORDEAUX PELLEGRIN_MaladiesInfectieuses,Bordeaux-Maladies_Infectieuses-20200623-20200624
+19,HC DE LYON EDOUARD HERRIOT_ReaChirurgie,Edouard_Herriot-ReaChirurgie-20200616-20200617
+16,HC DE LYON EDOUARD HERRIOT_Urgences,Edouard_Herriot-Urgences-20200611-20200612
+9,APHP BICÊTRE_Pneumologie,Kremlin_Bicetre-Pneumologie-20200420-20200421
+6,APHP NECKER ENFANTS MALADES_Pediatrie,Necker-Pediatrie-20200513-20200514
+14,APHP NECKER ENFANTS MALADES_Urgences,Necker-Urgence-20200521-20200522
+13,APHP RAYMOND POINCARÉ_MaladiesInfectieuses,Raymond_Poincare-Maladies_Infectieuses-20200417-20200418
+8,APHP AVICENNE_MaladiesInfectieuses,Avicenne-Maladies_Infectieuses-20200504-20200505
+12,HC DE LYON EDOUARD HERRIOT_Geriatrie,Edouard_Herriot-Geriatrie-20200604-20200605
+5,HC DE LYON EDOUARD HERRIOT_Reanimation,Edouard_Herriot-Reanimation-20200609-20200610
+17,APHP BICÊTRE_MedecineInterne,Kremlin_Bicetre-Medecine_Interne-20200424-20200425
+20,HC DE LYON SUD_Urgences,Lyon_Sud-Urgences-20200618-20200619
+2,APHP NECKER ENFANTS MALADES_Reanimation,Necker-Reanimation-20200525-20200526
+18,APHP PAUL BROUSSE_Geriatrie,Paul_Brousse-Geriatrie-20200518-20200519
+1,APHP RAYMOND POINCARÉ_Reanimation,Raymond_Poincare-Reanimation-20200506-20200507

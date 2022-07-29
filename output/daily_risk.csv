@@ -1,0 +1,136 @@
+newID,this_status,that_status,daily_risk
+Medical ICU #1,PA,PA,0.06231001189241056
+Medical ICU #1,PA,V,0
+Medical ICU #1,PA,PE,0.7463057471773984
+Medical ICU #1,V,PA,0
+Medical ICU #1,V,V,0
+Medical ICU #1,V,PE,4.3859642072324224e-4
+Medical ICU #1,PE,PA,0.09673048403629747
+Medical ICU #1,PE,V,1.8417772371470866e-6
+Medical ICU #1,PE,PE,0.25822665199384476
+Neonatal ICU,PA,PA,0.17417556556705274
+Neonatal ICU,PA,V,0.12405573917917007
+Neonatal ICU,PA,PE,0.16991494176086766
+Neonatal ICU,V,PA,0.21313450250057248
+Neonatal ICU,V,V,0.1987226837071318
+Neonatal ICU,V,PE,0.02973218997148373
+Neonatal ICU,PE,PA,0.06151476120446533
+Neonatal ICU,PE,V,0.014695355762701727
+Neonatal ICU,PE,PE,0.19223144491026645
+Medical ICU #2,PA,PA,5.636461923973783e-4
+Medical ICU #2,PA,V,0
+Medical ICU #2,PA,PE,0.2149192398650471
+Medical ICU #2,V,PA,NA
+Medical ICU #2,V,V,NA
+Medical ICU #2,V,PE,NA
+Medical ICU #2,PE,PA,0.08139057242532273
+Medical ICU #2,PE,V,0
+Medical ICU #2,PE,PE,0.25602047448183374
+General paediatrics,PA,PA,0.0802013578875433
+General paediatrics,PA,V,0.6297344324306905
+General paediatrics,PA,PE,0.07345024438955754
+General paediatrics,V,PA,0.5873003577707147
+General paediatrics,V,V,0.1971479099041352
+General paediatrics,V,PE,0.046278388945471975
+General paediatrics,PE,PA,0.05528288589791355
+General paediatrics,PE,V,0.011457794066548956
+General paediatrics,PE,PE,0.1112727492551759
+Infectious diseases #2,PA,PA,0.006227581943069235
+Infectious diseases #2,PA,V,0
+Infectious diseases #2,PA,PE,0.06470538654119744
+Infectious diseases #2,V,PA,NA
+Infectious diseases #2,V,V,NA
+Infectious diseases #2,V,PE,NA
+Infectious diseases #2,PE,PA,0.019183324711168195
+Infectious diseases #2,PE,V,0
+Infectious diseases #2,PE,PE,0.20778560376554642
+Pneumology,PA,PA,0.37142022034110844
+Pneumology,PA,V,0
+Pneumology,PA,PE,0.06938660797103446
+Pneumology,V,PA,NA
+Pneumology,V,V,NA
+Pneumology,V,PE,NA
+Pneumology,PE,PA,0.009430094444658265
+Pneumology,PE,V,0
+Pneumology,PE,PE,0.23068273308380183
+Geriatry #2,PA,PA,0.009459561772948714
+Geriatry #2,PA,V,3.400513522458544e-4
+Geriatry #2,PA,PE,0.05753016232506108
+Geriatry #2,V,PA,0.003940982835092216
+Geriatry #2,V,V,0
+Geriatry #2,V,PE,0.002332517522050615
+Geriatry #2,PE,PA,0.02448777487015995
+Geriatry #2,PE,V,3.611394693759142e-4
+Geriatry #2,PE,PE,0.3018082192778308
+Infectious diseases #1,PA,PA,0
+Infectious diseases #1,PA,V,0
+Infectious diseases #1,PA,PE,0.19982839358703217
+Infectious diseases #1,V,PA,NA
+Infectious diseases #1,V,V,NA
+Infectious diseases #1,V,PE,NA
+Infectious diseases #1,PE,PA,0.013015543581021973
+Infectious diseases #1,PE,V,0
+Infectious diseases #1,PE,PE,0.2178310908541279
+Paediatric emergency,PA,PA,0.0018465034210029142
+Paediatric emergency,PA,V,0.10935660001122825
+Paediatric emergency,PA,PE,0.026443853010285588
+Paediatric emergency,V,PA,0.08009379305316736
+Paediatric emergency,V,V,0.0038228728273551026
+Paediatric emergency,V,PE,0.015226326091797828
+Paediatric emergency,PE,PA,0.018322146773332635
+Paediatric emergency,PE,V,0.015573644682123765
+Paediatric emergency,PE,PE,0.11073805791093447
+Adult emergency #1,PA,PA,0.003504183402726318
+Adult emergency #1,PA,V,4.584674177479877e-4
+Adult emergency #1,PA,PE,0.046780920150954364
+Adult emergency #1,V,PA,0.00196813895426215
+Adult emergency #1,V,V,0.03327255961106682
+Adult emergency #1,V,PE,0.00440511819543721
+Adult emergency #1,PE,PA,0.02406879172582894
+Adult emergency #1,PE,V,2.434832074675961e-4
+Adult emergency #1,PE,PE,0.1863392704653913
+Internal medicine,PA,PA,0.4306508603865736
+Internal medicine,PA,V,3.586560516561783e-5
+Internal medicine,PA,PE,0.056665228639290424
+Internal medicine,V,PA,0.00114034963800159
+Internal medicine,V,V,0
+Internal medicine,V,PE,0
+Internal medicine,PE,PA,0.014848532513437415
+Internal medicine,PE,V,0
+Internal medicine,PE,PE,0.11210400760510723
+Geriatry #1,PA,PA,0.7183141768349582
+Geriatry #1,PA,V,0.002461402671416898
+Geriatry #1,PA,PE,0.05581917835626006
+Geriatry #1,V,PA,0.10830520527722728
+Geriatry #1,V,V,0
+Geriatry #1,V,PE,7.89473273026585e-4
+Geriatry #1,PE,PA,0.029453840603873693
+Geriatry #1,PE,V,4.768921594890622e-6
+Geriatry #1,PE,PE,0.14121527060712993
+Surgical ICU,PA,PA,0.07956327002842846
+Surgical ICU,PA,V,0.0445739371543817
+Surgical ICU,PA,PE,0.26219092868987154
+Surgical ICU,V,PA,0.08048514999926551
+Surgical ICU,V,V,0.03692908343339428
+Surgical ICU,V,PE,0.0027702522104434994
+Surgical ICU,PE,PA,0.06442316581554215
+Surgical ICU,PE,V,0.00083395379602192005
+Surgical ICU,PE,PE,0.19038634685505723
+Adult emergency #2,PA,PA,0.006001346442288301
+Adult emergency #2,PA,V,7.648284208849304e-4
+Adult emergency #2,PA,PE,0.03388075862613942
+Adult emergency #2,V,PA,0.051246450513170914
+Adult emergency #2,V,V,0
+Adult emergency #2,V,PE,0
+Adult emergency #2,PE,PA,0.039106684153090404
+Adult emergency #2,PE,V,0
+Adult emergency #2,PE,PE,0.2021167303350504
+Infectious diseases #3,PA,PA,0.323800693936621
+Infectious diseases #3,PA,V,0.014862431366259957
+Infectious diseases #3,PA,PE,0.06446661608761636
+Infectious diseases #3,V,PA,0.12057990070608705
+Infectious diseases #3,V,V,0.0031956640916768714
+Infectious diseases #3,V,PE,0.010562262703768636
+Infectious diseases #3,PE,PA,0.036328845382740865
+Infectious diseases #3,PE,V,0.0015122952960649094
+Infectious diseases #3,PE,PE,0.23110719227325616

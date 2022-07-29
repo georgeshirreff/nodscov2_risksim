@@ -1,0 +1,755 @@
+id,firstDate,lastDate,catHosp,status,ward_id,wardType,newID
+006-0102-L-D,2020-05-14,2020-05-14,physician,PE,6,General paediatrics,General paediatrics
+006-0105-T-M,2020-05-14,2020-05-14,aux nurse,PE,6,General paediatrics,General paediatrics
+006-0104-A-A,2020-05-14,2020-05-14,visitor,V,6,General paediatrics,General paediatrics
+006-0107-G-H,2020-05-14,2020-05-14,other,PE,6,General paediatrics,General paediatrics
+006-0108-B-E,2020-05-14,2020-05-14,other,PE,6,General paediatrics,General paediatrics
+018-0009-P-H,2020-05-18,2020-05-18,nurse,PE,18,Geriatry,Geriatry #1
+018-0011-T-I,2020-05-18,2020-05-18,student nurse,PE,18,Geriatry,Geriatry #1
+018-0012-F-N,2020-05-18,2020-05-18,student nurse,PE,18,Geriatry,Geriatry #1
+018-0013-L-M,2020-05-18,2020-05-18,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0014-F-F,2020-05-18,2020-05-18,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0031-G-J,2020-05-18,2020-05-18,logistic,PE,18,Geriatry,Geriatry #1
+018-0032-D-M,2020-05-18,2020-05-18,physician,PE,18,Geriatry,Geriatry #1
+018-0033-T-F,2020-05-18,2020-05-18,physician,PE,18,Geriatry,Geriatry #1
+018-0035-G-L,2020-05-18,2020-05-18,other,PE,18,Geriatry,Geriatry #1
+018-0036-J-M,2020-05-18,2020-05-18,reeducation staff,PE,18,Geriatry,Geriatry #1
+018-0039-H-N,2020-05-18,2020-05-18,physician,PE,18,Geriatry,Geriatry #1
+018-0040-T-B,2020-05-18,2020-05-18,physician,PE,18,Geriatry,Geriatry #1
+018-0041-S-C,2020-05-18,2020-05-18,physician,PE,18,Geriatry,Geriatry #1
+018-0042-M-T,2020-05-18,2020-05-18,other,PE,18,Geriatry,Geriatry #1
+018-0044-O-B,2020-05-18,2020-05-18,student nurse,PE,18,Geriatry,Geriatry #1
+018-0046-D-F,2020-05-18,2020-05-18,reeducation staff,PE,18,Geriatry,Geriatry #1
+018-0056-G-B,2020-05-18,2020-05-18,nurse,PE,18,Geriatry,Geriatry #1
+018-0057-L-H,2020-05-18,2020-05-18,nurse,PE,18,Geriatry,Geriatry #1
+018-0058-A-A,2020-05-18,2020-05-18,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0059-N-F,2020-05-18,2020-05-18,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0062-G-M,2020-05-18,2020-05-18,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0070-A-S,2020-05-19,2020-05-19,student nurse,PE,18,Geriatry,Geriatry #1
+018-0077-D-S,2020-05-19,2020-05-19,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0080-R-D,2020-05-19,2020-05-19,other,PE,18,Geriatry,Geriatry #1
+018-0084-G-C,2020-05-18,2020-05-18,nurse,PE,18,Geriatry,Geriatry #1
+018-0089-G-F,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0090-B-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0091-B-H,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0092-L-C,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0093-C-L,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0094-B-F,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0095-B-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0098-B-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0100-R-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0104-M-A,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0105-B-M,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0108-O-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0110-M-M,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0111-H-B,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0113-D-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0116-P-E,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0120-B-E,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0121-R-B,2020-05-19,2020-05-19,patient,PA,18,Geriatry,Geriatry #1
+018-0122-M-C,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0123-P-G,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0124-A-M,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0125-A-J,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0126-C-D,2020-05-19,2020-05-19,patient,PA,18,Geriatry,Geriatry #1
+018-0127-M-R,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0128-V-Y,2020-05-18,2020-05-18,patient,PA,18,Geriatry,Geriatry #1
+018-0130-G-L,2020-05-19,2020-05-19,administration,PE,18,Geriatry,Geriatry #1
+018-0131-A-D,2020-05-19,2020-05-19,patient,PA,18,Geriatry,Geriatry #1
+018-0135-N-M,2020-05-19,2020-05-19,aux nurse,PE,18,Geriatry,Geriatry #1
+018-0136-T-Y,2020-05-19,2020-05-19,aux nurse,PE,18,Geriatry,Geriatry #1
+014-0005-V-E,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0017-V-G,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0018-F-C,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0021-N-T,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0027-N-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0039-H-O,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+009-0013-N-N,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0014-H-R,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0016-B-M,2020-04-20,2020-04-20,administration,PE,9,Pneumology,Pneumology
+009-0017-R-J,2020-04-20,2020-04-20,aux nurse,PE,9,Pneumology,Pneumology
+009-0018-M-L,2020-04-20,2020-04-20,aux nurse,PE,9,Pneumology,Pneumology
+009-0021-P-G,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0023-B-K,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0027-D-S,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0028-M-D,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0032-R-A,2020-04-20,2020-04-20,aux nurse,PE,9,Pneumology,Pneumology
+009-0033-H-E,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0037-E-F,2020-04-20,2020-04-20,reeducation staff,PE,9,Pneumology,Pneumology
+009-0038-L-M,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0048-D-D,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0049-M-J,2020-04-20,2020-04-20,patient,PA,9,Pneumology,Pneumology
+009-0053-R-N,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0054-P-H,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0055-B-H,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0056-L-C,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0058-L-T,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0059-T-P,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0061-V-A,2020-04-20,2020-04-20,administration,PE,9,Pneumology,Pneumology
+009-0062-B-I,2020-04-20,2020-04-20,administration,PE,9,Pneumology,Pneumology
+009-0064-M-D,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0070-B-A,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
+009-0072-C-K,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0077-Z-O,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+014-0076-L-I,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0078-C-P,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0079-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0080-F-A,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0081-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0082-S-J,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0084-D-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0087-B-E,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0089-D-L,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
+014-0090-V-A,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
+014-0091-C-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0097-S-H,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0098-S-M,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0110-M-A,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0116-P-S,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0118-T-S,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0119-N-C,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0130-C-M,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0131-S-A,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0134-C-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0136-P-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0138-W-L,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0144-B-T,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0147-R-A,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0154-L-Y,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0155-L-H,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0162-W-J,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0167-L-D,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0184-G-D,2020-05-21,2020-05-21,logistic,PE,14,Pediatric emergency,Paediatric emergency
+014-0185-B-P,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0186-B-A,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0193-T-M,2020-05-21,2020-05-21,logistic,PE,14,Pediatric emergency,Paediatric emergency
+014-0196-C-N,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0206-F-F,2020-05-22,2020-05-22,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0207-F-I,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0223-G-A,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
+014-0224-N-G,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
+014-0228-Z-E,2020-05-22,2020-05-22,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0233-P-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0237-R-E,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0238-R-M,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0242-D-T,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0249-C-M,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
+014-0261-L-T,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0266-G-A,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0270-B-P,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0272-N-L,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0273-A-V,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0279-F-M,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0298-M-T,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0304-T-S,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0306-M-A,2020-05-22,2020-05-22,other,PE,14,Pediatric emergency,Paediatric emergency
+014-0331-S-C,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0334-G-M,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
+014-0356-M-O,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0365-F-E,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
+002-0059-B-J,2020-05-25,2020-05-25,patient,PA,2,Neonatal ICU,Neonatal ICU
+002-0066-E-S,2020-05-25,2020-05-25,reeducation staff,PE,2,Neonatal ICU,Neonatal ICU
+002-0073-M-M,2020-05-25,2020-05-25,other,PE,2,Neonatal ICU,Neonatal ICU
+002-0077-S-J,2020-05-26,2020-05-26,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0078-M-L,2020-05-26,2020-05-26,student nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0079-C-C,2020-05-26,2020-05-26,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0080-D-J,2020-05-25,2020-05-25,physician,PE,2,Neonatal ICU,Neonatal ICU
+002-0082-L-O,2020-05-26,2020-05-26,other,PE,2,Neonatal ICU,Neonatal ICU
+002-0085-P-M,2020-05-26,2020-05-26,physician,PE,2,Neonatal ICU,Neonatal ICU
+002-0088-T-A,2020-05-26,2020-05-26,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0098-C-L,2020-05-25,2020-05-25,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0128-R-V,2020-05-25,2020-05-25,physician,PE,2,Neonatal ICU,Neonatal ICU
+002-0129-B-J,2020-05-26,2020-05-26,visitor,V,2,Neonatal ICU,Neonatal ICU
+002-0130-B-J,2020-05-26,2020-05-26,visitor,V,2,Neonatal ICU,Neonatal ICU
+002-0136-B-L,2020-05-25,2020-05-25,patient,PA,2,Neonatal ICU,Neonatal ICU
+002-0137-V-M,2020-05-25,2020-05-25,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0138-P-C,2020-05-25,2020-05-25,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0140-J-M,2020-05-25,2020-05-25,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0141-G-A,2020-05-25,2020-05-25,nurse,PE,2,Neonatal ICU,Neonatal ICU
+002-0143-C-L,2020-05-26,2020-05-26,nurse,PE,2,Neonatal ICU,Neonatal ICU
+012-0010-B-C,2020-06-04,2020-06-04,student nurse,PE,12,Geriatry,Geriatry #2
+012-0015-L-C,2020-06-04,2020-06-04,administration,PE,12,Geriatry,Geriatry #2
+012-0016-T-E,2020-06-04,2020-06-04,reeducation staff,PE,12,Geriatry,Geriatry #2
+012-0018-M-M,2020-06-04,2020-06-04,reeducation staff,PE,12,Geriatry,Geriatry #2
+012-0019-P-C,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0020-G-O,2020-06-04,2020-06-04,other,PE,12,Geriatry,Geriatry #2
+012-0022-B-H,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0023-K-A,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0024-T-C,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0026-S-F,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0027-R-V,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0028-O-L,2020-06-04,2020-06-04,investigation,PE,12,Geriatry,Geriatry #2
+012-0029-G-S,2020-06-04,2020-06-04,student nurse,PE,12,Geriatry,Geriatry #2
+012-0030-P-M,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0031-M-L,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0032-E-M,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0034-V-A,2020-06-04,2020-06-04,administration,PE,12,Geriatry,Geriatry #2
+012-0035-H-R,2020-06-04,2020-06-04,logistic,PE,12,Geriatry,Geriatry #2
+012-0036-K-J,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0038-S-H,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0039-X-L,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0040-B-L,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0041-M-R,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0042-R-Y,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0043-M-F,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0044-S-C,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0045-C-A,2020-06-04,2020-06-04,administration,PE,12,Geriatry,Geriatry #2
+012-0046-F-M,2020-06-04,2020-06-04,reeducation staff,PE,12,Geriatry,Geriatry #2
+012-0047-B-O,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0050-C-E,2020-06-04,2020-06-04,student nurse,PE,12,Geriatry,Geriatry #2
+012-0055-M-J,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0057-B-F,2020-06-04,2020-06-04,physician,PE,12,Geriatry,Geriatry #2
+012-0058-H-N,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0060-P-N,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0062-R-I,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0063-D-M,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+012-0069-T-C,2020-06-04,2020-06-04,investigation,PE,12,Geriatry,Geriatry #2
+012-0076-P-G,2020-06-04,2020-06-04,investigation,PE,12,Geriatry,Geriatry #2
+012-0081-B-R,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0084-B-R,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0086-G-K,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0087-A-A,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0088-C-B,2020-06-04,2020-06-04,other,PE,12,Geriatry,Geriatry #2
+012-0090-H-B,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0093-R-S,2020-06-04,2020-06-04,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0096-R-J,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0112-K-M,2020-06-04,2020-06-04,nurse,PE,12,Geriatry,Geriatry #2
+012-0117-D-C,2020-06-05,2020-06-05,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0118-P-H,2020-06-05,2020-06-05,physician,PE,12,Geriatry,Geriatry #2
+012-0120-S-E,2020-06-05,2020-06-05,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0122-D-F,2020-06-05,2020-06-05,nurse,PE,12,Geriatry,Geriatry #2
+012-0123-M-J,2020-06-05,2020-06-05,nurse,PE,12,Geriatry,Geriatry #2
+012-0124-M-M,2020-06-05,2020-06-05,aux nurse,PE,12,Geriatry,Geriatry #2
+012-0125-C-Y,2020-06-05,2020-06-05,administration,PE,12,Geriatry,Geriatry #2
+012-0127-I-R,2020-06-05,2020-06-05,reeducation staff,PE,12,Geriatry,Geriatry #2
+012-0131-P-S,2020-06-05,2020-06-05,reeducation staff,PE,12,Geriatry,Geriatry #2
+012-0140-K-K,2020-06-05,2020-06-05,ext physician,PE,12,Geriatry,Geriatry #2
+012-0150-P-M,2020-06-05,2020-06-05,physician,PE,12,Geriatry,Geriatry #2
+012-0157-G-M,2020-06-05,2020-06-05,other,PE,12,Geriatry,Geriatry #2
+012-0158-H-P,2020-06-05,2020-06-05,other,PE,12,Geriatry,Geriatry #2
+012-0160-K-E,2020-06-05,2020-06-05,patient,PA,12,Geriatry,Geriatry #2
+012-0161-C-L,2020-06-05,2020-06-05,patient,PA,12,Geriatry,Geriatry #2
+012-0162-F-A,2020-06-05,2020-06-05,patient,PA,12,Geriatry,Geriatry #2
+012-0166-M-E,2020-06-04,2020-06-04,patient,PA,12,Geriatry,Geriatry #2
+002-0157-L-M,2020-05-25,2020-05-25,patient,PA,2,Neonatal ICU,Neonatal ICU
+005-0002-P-C,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0003-G-A,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0004-D-E,2020-06-09,2020-06-09,student nurse,PE,5,Medical ICU,Medical ICU #2
+005-0005-N-J,2020-06-09,2020-06-09,investigation,PE,5,Medical ICU,Medical ICU #2
+005-0006-O-L,2020-06-09,2020-06-09,investigation,PE,5,Medical ICU,Medical ICU #2
+005-0008-R-M,2020-06-09,2020-06-09,aux nurse,PE,5,Medical ICU,Medical ICU #2
+005-0009-O-S,2020-06-09,2020-06-09,student nurse,PE,5,Medical ICU,Medical ICU #2
+005-0010-B-S,2020-06-09,2020-06-09,aux nurse,PE,5,Medical ICU,Medical ICU #2
+005-0014-N-S,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0015-B-L,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0018-S-S,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0022-A-A,2020-06-09,2020-06-09,investigation,PE,5,Medical ICU,Medical ICU #2
+005-0027-L-S,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0028-L-O,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0030-C-C,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0031-V-N,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0032-C-E,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0034-D-F,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0035-P-C,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0036-P-A,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0037-N-V,2020-06-09,2020-06-09,administration,PE,5,Medical ICU,Medical ICU #2
+005-0039-F-P,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0044-O-M,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0045-C-D,2020-06-09,2020-06-09,reeducation staff,PE,5,Medical ICU,Medical ICU #2
+005-0047-B-T,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0048-Q-E,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0050-S-M,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0053-A-L,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0054-P-X,2020-06-09,2020-06-09,logistic,PE,5,Medical ICU,Medical ICU #2
+005-0056-B-H,2020-06-09,2020-06-09,logistic,PE,5,Medical ICU,Medical ICU #2
+005-0057-B-P,2020-06-09,2020-06-09,ext physician,PE,5,Medical ICU,Medical ICU #2
+005-0058-R-R,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0059-P-R,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0061-C-E,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0062-C-C,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0063-S-S,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0064-L-M,2020-06-09,2020-06-09,ext physician,PE,5,Medical ICU,Medical ICU #2
+005-0071-S-S,2020-06-09,2020-06-09,administration,PE,5,Medical ICU,Medical ICU #2
+005-0073-B-A,2020-06-09,2020-06-09,administration,PE,5,Medical ICU,Medical ICU #2
+005-0078-F-F,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0082-B-C,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0086-M-D,2020-06-09,2020-06-09,patient,PA,5,Medical ICU,Medical ICU #2
+005-0087-D-W,2020-06-09,2020-06-09,physician,PE,5,Medical ICU,Medical ICU #2
+005-0089-M-A,2020-06-09,2020-06-09,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0101-H-S,2020-06-10,2020-06-10,aux nurse,PE,5,Medical ICU,Medical ICU #2
+005-0109-C-A,2020-06-10,2020-06-10,physician,PE,5,Medical ICU,Medical ICU #2
+005-0110-R-F,2020-06-10,2020-06-10,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0111-B-M,2020-06-10,2020-06-10,ext physician,PE,5,Medical ICU,Medical ICU #2
+005-0112-B-L,2020-06-10,2020-06-10,ext physician,PE,5,Medical ICU,Medical ICU #2
+005-0113-D-A,2020-06-10,2020-06-10,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0115-C-C,2020-06-10,2020-06-10,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0116-B-P,2020-06-10,2020-06-10,physician,PE,5,Medical ICU,Medical ICU #2
+005-0117-B-W,2020-06-10,2020-06-10,aux nurse,PE,5,Medical ICU,Medical ICU #2
+005-0118-C-F,2020-06-10,2020-06-10,physician,PE,5,Medical ICU,Medical ICU #2
+005-0120-F-A,2020-06-10,2020-06-10,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0121-C-M,2020-06-10,2020-06-10,physician,PE,5,Medical ICU,Medical ICU #2
+005-0122-L-F,2020-06-10,2020-06-10,nurse,PE,5,Medical ICU,Medical ICU #2
+005-0123-M-I,2020-06-10,2020-06-10,aux nurse,PE,5,Medical ICU,Medical ICU #2
+009-0085-L-C,2020-04-20,2020-04-20,aux nurse,PE,9,Pneumology,Pneumology
+009-0087-A-S,2020-04-20,2020-04-20,aux nurse,PE,9,Pneumology,Pneumology
+009-0088-M-N,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0096-V-A,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
+009-0098-P-C,2020-04-21,2020-04-21,nurse,PE,9,Pneumology,Pneumology
+009-0101-H-M,2020-04-21,2020-04-21,aux nurse,PE,9,Pneumology,Pneumology
+009-0114-C-R,2020-04-21,2020-04-21,other,PE,9,Pneumology,Pneumology
+009-0120-S-A,2020-04-21,2020-04-21,physician,PE,9,Pneumology,Pneumology
+009-0127-G-P,2020-04-21,2020-04-21,nurse,PE,9,Pneumology,Pneumology
+009-0128-S-J,2020-04-21,2020-04-21,other,PE,9,Pneumology,Pneumology
+009-0129-M-M,2020-04-21,2020-04-21,nurse,PE,9,Pneumology,Pneumology
+013-0016-R-S,2020-04-17,2020-04-17,administration,PE,13,Infectious Diseases,Infectious diseases #1
+013-0017-T-B,2020-04-17,2020-04-17,administration,PE,13,Infectious Diseases,Infectious diseases #1
+009-0136-A-N,2020-04-21,2020-04-21,nurse,PE,9,Pneumology,Pneumology
+009-0137-D-W,2020-04-21,2020-04-21,aux nurse,PE,9,Pneumology,Pneumology
+009-0139-C-C,2020-04-21,2020-04-21,patient,PA,9,Pneumology,Pneumology
+013-0020-M-J,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0036-F-J,2020-04-17,2020-04-17,patient,PA,13,Infectious Diseases,Infectious diseases #1
+013-0039-M-L,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0040-B-R,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0041-A-D,2020-04-17,2020-04-17,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0042-H-A,2020-04-18,2020-04-18,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0045-J-O,2020-04-18,2020-04-18,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0046-S-C,2020-04-18,2020-04-18,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+016-0022-B-M,2020-06-11,2020-06-11,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0023-B-L,2020-06-11,2020-06-11,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0024-V-L,2020-06-11,2020-06-11,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0025-C-M,2020-06-11,2020-06-11,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0026-S-F,2020-06-11,2020-06-11,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0029-B-L,2020-06-11,2020-06-11,ext physician,PE,16,Adult emergency,Adult emergency #1
+016-0031-T-A,2020-06-11,2020-06-11,ext physician,PE,16,Adult emergency,Adult emergency #1
+016-0033-C-M,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0034-D-C,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0035-P-C,2020-06-11,2020-06-11,ext physician,PE,16,Adult emergency,Adult emergency #1
+016-0036-S-L,2020-06-11,2020-06-11,ext physician,PE,16,Adult emergency,Adult emergency #1
+016-0037-B-F,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0044-S-X,2020-06-11,2020-06-11,ext physician,PE,16,Adult emergency,Adult emergency #1
+016-0045-L-R,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0047-N-A,2020-06-11,2020-06-11,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0048-D-J,2020-06-11,2020-06-11,patient,PA,16,Adult emergency,Adult emergency #1
+016-0049-B-P,2020-06-11,2020-06-11,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0053-C-G,2020-06-11,2020-06-11,patient,PA,16,Adult emergency,Adult emergency #1
+016-0058-M-S,2020-06-11,2020-06-11,other,PE,16,Adult emergency,Adult emergency #1
+016-0059-Z-M,2020-06-11,2020-06-11,other,PE,16,Adult emergency,Adult emergency #1
+016-0060-B-I,2020-06-11,2020-06-11,other,PE,16,Adult emergency,Adult emergency #1
+016-0072-S-M,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0074-B-J,2020-06-11,2020-06-11,patient,PA,16,Adult emergency,Adult emergency #1
+016-0109-A-M,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0112-B-J,2020-06-11,2020-06-11,physician,PE,16,Adult emergency,Adult emergency #1
+016-0125-D-M,2020-06-11,2020-06-11,patient,PA,16,Adult emergency,Adult emergency #1
+016-0127-P-B,2020-06-11,2020-06-11,other,PE,16,Adult emergency,Adult emergency #1
+016-0139-G-J,2020-06-11,2020-06-11,patient,PA,16,Adult emergency,Adult emergency #1
+016-0149-G-C,2020-06-12,2020-06-12,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0151-N-M,2020-06-12,2020-06-12,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0152-K-C,2020-06-12,2020-06-12,nurse,PE,16,Adult emergency,Adult emergency #1
+016-0153-A-A,2020-06-12,2020-06-12,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0159-R-C,2020-06-12,2020-06-12,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0160-B-K,2020-06-12,2020-06-12,logistic,PE,16,Adult emergency,Adult emergency #1
+016-0164-E-A,2020-06-12,2020-06-12,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0165-H-C,2020-06-12,2020-06-12,aux nurse,PE,16,Adult emergency,Adult emergency #1
+016-0167-P-M,2020-06-12,2020-06-12,physician,PE,16,Adult emergency,Adult emergency #1
+016-0169-E-A,2020-06-12,2020-06-12,physician,PE,16,Adult emergency,Adult emergency #1
+016-0173-J-F,2020-06-12,2020-06-12,patient,PA,16,Adult emergency,Adult emergency #1
+016-0178-S-A,2020-06-12,2020-06-12,patient,PA,16,Adult emergency,Adult emergency #1
+016-0182-M-M,2020-06-12,2020-06-12,patient,PA,16,Adult emergency,Adult emergency #1
+019-0008-D-F,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0010-D-A,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0011-A-P,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0012-H-J,2020-06-16,2020-06-16,logistic,PE,19,Surgical ICU,Surgical ICU
+019-0013-B-S,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0014-B-G,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0015-B-S,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0016-S-E,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0018-E-D,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0019-R-T,2020-06-16,2020-06-16,student nurse,PE,19,Surgical ICU,Surgical ICU
+019-0020-R-A,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0021-N-H,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0023-C-A,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0024-K-N,2020-06-16,2020-06-16,visitor,V,19,Surgical ICU,Surgical ICU
+019-0025-M-L,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0026-S-C,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0027-G-E,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0028-C-C,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0029-B-C,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0030-B-A,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0031-B-A,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0032-C-H,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0033-A-F,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0034-K-C,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0035-L-B,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0037-S-A,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0038-P-S,2020-06-16,2020-06-16,administration,PE,19,Surgical ICU,Surgical ICU
+019-0039-B-M,2020-06-16,2020-06-16,ext physician,PE,19,Surgical ICU,Surgical ICU
+019-0041-F-V,2020-06-16,2020-06-16,ext physician,PE,19,Surgical ICU,Surgical ICU
+019-0042-J-A,2020-06-16,2020-06-16,ext physician,PE,19,Surgical ICU,Surgical ICU
+019-0043-B-L,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0044-F-H,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0045-D-J,2020-06-16,2020-06-16,ext physician,PE,19,Surgical ICU,Surgical ICU
+019-0046-H-B,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0048-D-A,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0049-T-J,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0050-J-F,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0051-T-G,2020-06-16,2020-06-16,reeducation staff,PE,19,Surgical ICU,Surgical ICU
+019-0053-K-V,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0054-Z-A,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0055-P-F,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0056-S-M,2020-06-16,2020-06-16,physician,PE,19,Surgical ICU,Surgical ICU
+019-0057-K-J,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0058-P-V,2020-06-16,2020-06-16,reeducation staff,PE,19,Surgical ICU,Surgical ICU
+019-0059-D-J,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0060-A-A,2020-06-16,2020-06-16,administration,PE,19,Surgical ICU,Surgical ICU
+019-0061-L-T,2020-06-16,2020-06-16,patient,PA,19,Surgical ICU,Surgical ICU
+019-0063-L-V,2020-06-16,2020-06-16,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0064-G-A,2020-06-16,2020-06-16,administration,PE,19,Surgical ICU,Surgical ICU
+019-0066-P-J,2020-06-16,2020-06-16,other,PE,19,Surgical ICU,Surgical ICU
+019-0067-D-I,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0070-R-R,2020-06-16,2020-06-16,visitor,V,19,Surgical ICU,Surgical ICU
+019-0074-J-V,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0076-L-M,2020-06-16,2020-06-16,visitor,V,19,Surgical ICU,Surgical ICU
+019-0085-G-M,2020-06-16,2020-06-16,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0093-C-J,2020-06-17,2020-06-17,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0094-F-P,2020-06-17,2020-06-17,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0099-B-V,2020-06-17,2020-06-17,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0100-M-K,2020-06-17,2020-06-17,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0102-R-N,2020-06-17,2020-06-17,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0103-S-C,2020-06-17,2020-06-17,nurse,PE,19,Surgical ICU,Surgical ICU
+019-0105-Z-C,2020-06-17,2020-06-17,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0106-T-L,2020-06-17,2020-06-17,aux nurse,PE,19,Surgical ICU,Surgical ICU
+019-0107-Z-V,2020-06-17,2020-06-17,physician,PE,19,Surgical ICU,Surgical ICU
+019-0108-F-M,2020-06-17,2020-06-17,physician,PE,19,Surgical ICU,Surgical ICU
+019-0110-C-F,2020-06-17,2020-06-17,physician,PE,19,Surgical ICU,Surgical ICU
+019-0112-B-S,2020-06-17,2020-06-17,logistic,PE,19,Surgical ICU,Surgical ICU
+002-0161-L-D,2020-05-26,2020-05-26,visitor,V,2,Neonatal ICU,Neonatal ICU
+019-0113-L-S,2020-06-17,2020-06-17,visitor,V,19,Surgical ICU,Surgical ICU
+019-0115-M-M,2020-06-17,2020-06-17,student nurse,PE,19,Surgical ICU,Surgical ICU
+020-0007-J-E,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0010-H-N,2020-06-18,2020-06-18,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0013-M-M,2020-06-18,2020-06-18,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0015-B-S,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0017-G-R,2020-06-18,2020-06-18,administration,PE,20,Adult emergency,Adult emergency #2
+020-0018-B-S,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0021-F-S,2020-06-18,2020-06-18,physician,PE,20,Adult emergency,Adult emergency #2
+020-0029-D-S,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0031-C-L,2020-06-18,2020-06-18,ext physician,PE,20,Adult emergency,Adult emergency #2
+020-0036-G-G,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0043-R-C,2020-06-18,2020-06-18,ext physician,PE,20,Adult emergency,Adult emergency #2
+020-0044-P-C,2020-06-18,2020-06-18,physician,PE,20,Adult emergency,Adult emergency #2
+020-0047-M-M,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0048-R-A,2020-06-18,2020-06-18,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0064-S-L,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0065-V-N,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0093-K-N,2020-06-18,2020-06-18,patient,PA,20,Adult emergency,Adult emergency #2
+020-0117-K-Y,2020-06-18,2020-06-18,patient,PA,20,Adult emergency,Adult emergency #2
+020-0120-G-B,2020-06-18,2020-06-18,ext physician,PE,20,Adult emergency,Adult emergency #2
+020-0143-D-M,2020-06-19,2020-06-19,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0144-R-J,2020-06-19,2020-06-19,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0145-M-A,2020-06-19,2020-06-19,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0146-B-J,2020-06-19,2020-06-19,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0154-G-A,2020-06-19,2020-06-19,physician,PE,20,Adult emergency,Adult emergency #2
+020-0157-C-M,2020-06-19,2020-06-19,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0158-A-M,2020-06-19,2020-06-19,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0164-L-R,2020-06-18,2020-06-18,patient,PA,20,Adult emergency,Adult emergency #2
+020-0167-R-J,2020-06-19,2020-06-19,physician,PE,20,Adult emergency,Adult emergency #2
+020-0173-B-J,2020-06-18,2020-06-18,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0176-C-T,2020-06-18,2020-06-18,physician,PE,20,Adult emergency,Adult emergency #2
+020-0179-P-V,2020-06-18,2020-06-18,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0182-C-F,2020-06-18,2020-06-18,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0185-B-R,2020-06-19,2020-06-19,aux nurse,PE,20,Adult emergency,Adult emergency #2
+020-0186-T-S,2020-06-19,2020-06-19,nurse,PE,20,Adult emergency,Adult emergency #2
+020-0188-J-B,2020-06-19,2020-06-19,physician,PE,20,Adult emergency,Adult emergency #2
+020-0208-D-F,2020-06-19,2020-06-19,patient,PA,20,Adult emergency,Adult emergency #2
+020-0221-D-J,2020-06-19,2020-06-19,physician,PE,20,Adult emergency,Adult emergency #2
+021-0006-L-C,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0007-C-N,2020-06-23,2020-06-23,student nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0008-L-G,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0010-B-C,2020-06-23,2020-06-23,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0014-L-M,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0021-R-M,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0022-E-J,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0026-B-J,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0027-S-R,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0028-E-D,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0029-B-S,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0030-J-M,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0031-E-J,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0032-B-D,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0035-C-M,2020-06-23,2020-06-23,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0040-B-D,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0041-L-M,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0051-G-L,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0055-T-J,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0056-G-L,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0058-E-M,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0059-S-A,2020-06-23,2020-06-23,other,PE,21,Infectious Diseases,Infectious diseases #3
+021-0060-G-C,2020-06-23,2020-06-23,other,PE,21,Infectious Diseases,Infectious diseases #3
+021-0065-M-L,2020-06-23,2020-06-23,physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0073-J-B,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0074-D-O,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0081-B-C,2020-06-23,2020-06-23,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0084-D-M,2020-06-23,2020-06-23,physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0086-M-E,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0087-U-L,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0088-P-M,2020-06-23,2020-06-23,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0089-G-N,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0091-F-L,2020-06-23,2020-06-23,visitor,V,21,Infectious Diseases,Infectious diseases #3
+021-0093-B-C,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0097-D-H,2020-06-23,2020-06-23,physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0099-M-N,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0100-M-A,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0101-B-J,2020-06-23,2020-06-23,physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0102-M-M,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0104-C-R,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0105-M-T,2020-06-23,2020-06-23,ext physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0106-C-M,2020-06-23,2020-06-23,physician,PE,21,Infectious Diseases,Infectious diseases #3
+021-0107-B-L,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0108-B-C,2020-06-23,2020-06-23,reeducation staff,PE,21,Infectious Diseases,Infectious diseases #3
+021-0109-L-L,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0111-F-C,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0112-N-M,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0113-L-J,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0115-O-P,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0122-H-C,2020-06-23,2020-06-23,student nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0125-O-C,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0127-O-L,2020-06-23,2020-06-23,investigation,PE,21,Infectious Diseases,Infectious diseases #3
+021-0130-P-F,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0131-G-C,2020-06-23,2020-06-23,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0134-L-T,2020-06-23,2020-06-23,visitor,V,21,Infectious Diseases,Infectious diseases #3
+021-0142-P-M,2020-06-23,2020-06-23,visitor,V,21,Infectious Diseases,Infectious diseases #3
+021-0148-G-C,2020-06-23,2020-06-23,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0150-F-C,2020-06-23,2020-06-23,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0152-M-N,2020-06-24,2020-06-24,student nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0153-B-M,2020-06-24,2020-06-24,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0155-E-J,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0156-P-M,2020-06-24,2020-06-24,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0158-G-M,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0159-S-A,2020-06-24,2020-06-24,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0160-L-S,2020-06-24,2020-06-24,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0161-E-S,2020-06-24,2020-06-24,patient,PA,21,Infectious Diseases,Infectious diseases #3
+021-0187-E-M,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0188-S-L,2020-06-24,2020-06-24,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0189-H-C,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0190-M-N,2020-06-24,2020-06-24,aux nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0191-R-Y,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0192-C-L,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+021-0193-R-A,2020-06-24,2020-06-24,nurse,PE,21,Infectious Diseases,Infectious diseases #3
+013-0050-C-A,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0051-D-B,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0054-L-D,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0055-N-J,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0057-T-C,2020-04-17,2020-04-17,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0058-J-A,2020-04-17,2020-04-17,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0059-L-H,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0066-P-V,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0068-B-S,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0072-M-F,2020-04-17,2020-04-17,patient,PA,13,Infectious Diseases,Infectious diseases #1
+013-0073-H-M,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0074-K-N,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0077-C-B,2020-04-17,2020-04-17,administration,PE,13,Infectious Diseases,Infectious diseases #1
+013-0078-L-I,2020-04-17,2020-04-17,administration,PE,13,Infectious Diseases,Infectious diseases #1
+013-0079-L-S,2020-04-17,2020-04-17,physician,PE,13,Infectious Diseases,Infectious diseases #1
+013-0087-L-C,2020-04-17,2020-04-17,reeducation staff,PE,13,Infectious Diseases,Infectious diseases #1
+013-0088-K-A,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0089-C-G,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0090-C-L,2020-04-17,2020-04-17,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0092-Y-A,2020-04-17,2020-04-17,aux nurse,PE,13,Infectious Diseases,Infectious diseases #1
+013-0093-L-V,2020-04-17,2020-04-17,other,PE,13,Infectious Diseases,Infectious diseases #1
+013-0094-L-I,2020-04-17,2020-04-17,administration,PE,13,Infectious Diseases,Infectious diseases #1
+013-0095-C-E,2020-04-17,2020-04-17,nurse,PE,13,Infectious Diseases,Infectious diseases #1
+017-0001-L-F,2020-04-24,2020-04-24,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0002-G-J,2020-04-24,2020-04-24,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0004-B-M,2020-04-24,2020-04-24,student nurse,PE,17,Internal medicine,Internal medicine
+017-0008-D-P,2020-04-24,2020-04-24,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0009-B-D,2020-04-24,2020-04-24,logistic,PE,17,Internal medicine,Internal medicine
+017-0012-R-S,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0013-L-P,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0016-V-D,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0017-Z-J,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0018-A-K,2020-04-24,2020-04-24,physician,PE,17,Internal medicine,Internal medicine
+017-0023-C-P,2020-04-24,2020-04-24,administration,PE,17,Internal medicine,Internal medicine
+017-0024-L-C,2020-04-24,2020-04-24,administration,PE,17,Internal medicine,Internal medicine
+017-0028-D-E,2020-04-24,2020-04-24,student nurse,PE,17,Internal medicine,Internal medicine
+017-0035-F-M,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0036-B-O,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0037-P-S,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0042-K-H,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0044-G-S,2020-04-24,2020-04-24,patient,PA,17,Internal medicine,Internal medicine
+017-0045-S-S,2020-04-24,2020-04-24,nurse,PE,17,Internal medicine,Internal medicine
+017-0046-H-S,2020-04-24,2020-04-24,physician,PE,17,Internal medicine,Internal medicine
+017-0050-M-C,2020-04-24,2020-04-24,ext physician,PE,17,Internal medicine,Internal medicine
+017-0052-A-C,2020-04-24,2020-04-24,administration,PE,17,Internal medicine,Internal medicine
+017-0055-H-J,2020-04-24,2020-04-24,student nurse,PE,17,Internal medicine,Internal medicine
+017-0056-K-M,2020-04-24,2020-04-24,nurse,PE,17,Internal medicine,Internal medicine
+017-0068-P-H,2020-04-24,2020-04-24,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0069-C-J,2020-04-24,2020-04-24,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0070-M-S,2020-04-25,2020-04-25,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0078-B-G,2020-04-25,2020-04-25,nurse,PE,17,Internal medicine,Internal medicine
+017-0079-C-K,2020-04-25,2020-04-25,aux nurse,PE,17,Internal medicine,Internal medicine
+017-0080-M-S,2020-04-25,2020-04-25,other,PE,17,Internal medicine,Internal medicine
+017-0081-A-Q,2020-04-25,2020-04-25,other,PE,17,Internal medicine,Internal medicine
+017-0082-V-V,2020-04-25,2020-04-25,nurse,PE,17,Internal medicine,Internal medicine
+008-0006-O-L,2020-05-04,2020-05-04,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0007-F-V,2020-05-04,2020-05-04,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0008-P-S,2020-05-04,2020-05-04,student nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0009-L-V,2020-05-04,2020-05-04,investigation,PE,8,Infectious Diseases,Infectious diseases #2
+008-0010-D-L,2020-05-04,2020-05-04,investigation,PE,8,Infectious Diseases,Infectious diseases #2
+008-0012-E-C,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0015-D-M,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0017-B-C,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0021-T-F,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0022-L-G,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0025-H-C,2020-05-04,2020-05-04,administration,PE,8,Infectious Diseases,Infectious diseases #2
+008-0029-R-Y,2020-05-04,2020-05-04,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0030-P-J,2020-05-04,2020-05-04,student nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0031-C-B,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0032-A-N,2020-05-04,2020-05-04,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0033-D-N,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0037-C-J,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0038-G-G,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0042-R-L,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0044-D-L,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0046-M-O,2020-05-04,2020-05-04,administration,PE,8,Infectious Diseases,Infectious diseases #2
+008-0047-B-C,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0049-D-S,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0051-K-R,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0052-C-H,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0054-T-L,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0055-G-J,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0057-S-M,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0060-F-E,2020-05-04,2020-05-04,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0061-D-A,2020-05-04,2020-05-04,administration,PE,8,Infectious Diseases,Infectious diseases #2
+008-0063-H-B,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0065-J-F,2020-05-04,2020-05-04,administration,PE,8,Infectious Diseases,Infectious diseases #2
+008-0070-R-A,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0071-T-A,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0072-K-A,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0073-P-M,2020-05-04,2020-05-04,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0075-P-D,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0079-L-S,2020-05-04,2020-05-04,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0081-S-G,2020-05-05,2020-05-05,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0082-S-N,2020-05-05,2020-05-05,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0084-T-C,2020-05-05,2020-05-05,nurse,PE,8,Infectious Diseases,Infectious diseases #2
+008-0086-V-A,2020-05-05,2020-05-05,investigation,PE,8,Infectious Diseases,Infectious diseases #2
+008-0087-B-K,2020-05-05,2020-05-05,patient,PA,8,Infectious Diseases,Infectious diseases #2
+008-0090-M-C,2020-05-05,2020-05-05,physician,PE,8,Infectious Diseases,Infectious diseases #2
+008-0095-B-C,2020-05-05,2020-05-05,other,PE,8,Infectious Diseases,Infectious diseases #2
+008-0096-B-J,2020-05-05,2020-05-05,aux nurse,PE,8,Infectious Diseases,Infectious diseases #2
+001-0016-C-L,2020-05-06,2020-05-06,other,PE,1,Medical ICU,Medical ICU #1
+001-0017-K-K,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0027-P-A,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0030-N-H,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0031-T-J,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0034-L-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0036-R-R,2020-05-06,2020-05-06,other,PE,1,Medical ICU,Medical ICU #1
+001-0037-B-S,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0040-B-G,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0041-M-V,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0042-B-S,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0043-B-T,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0044-N-M,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0054-P-E,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0055-S-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0057-C-B,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0058-V-A,2020-05-06,2020-05-06,investigation,PE,1,Medical ICU,Medical ICU #1
+001-0060-B-D,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0063-T-E,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0065-C-I,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0066-L-S,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0071-L-M,2020-05-06,2020-05-06,administration,PE,1,Medical ICU,Medical ICU #1
+001-0074-A-B,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0077-D-M,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0079-C-I,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0080-M-M,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0081-M-N,2020-05-06,2020-05-06,administration,PE,1,Medical ICU,Medical ICU #1
+001-0082-T-C,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0083-M-P,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0090-C-I,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0091-K-E,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0094-T-C,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0095-H-M,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0097-R-E,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0102-L-L,2020-05-06,2020-05-06,other,PE,1,Medical ICU,Medical ICU #1
+001-0105-B-A,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0106-P-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0107-V-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0108-J-S,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0112-T-N,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0113-E-L,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0114-C-F,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0116-C-A,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0117-M-R,2020-05-06,2020-05-06,patient,PA,1,Medical ICU,Medical ICU #1
+001-0120-V-H,2020-05-06,2020-05-06,reeducation staff,PE,1,Medical ICU,Medical ICU #1
+001-0124-S-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0126-S-F,2020-05-06,2020-05-06,physician,PE,1,Medical ICU,Medical ICU #1
+001-0133-R-E,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0134-O-S,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0136-S-D,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0137-D-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0138-F-M,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0143-R-M,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0144-M-L,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0147-B-C,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0151-T-M,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0152-S-A,2020-05-07,2020-05-07,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0153-R-L,2020-05-06,2020-05-06,student nurse,PE,1,Medical ICU,Medical ICU #1
+001-0154-M-K,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0157-Q-H,2020-05-07,2020-05-07,other,PE,1,Medical ICU,Medical ICU #1
+001-0161-D-O,2020-05-06,2020-05-06,student nurse,PE,1,Medical ICU,Medical ICU #1
+001-0162-O-D,2020-05-07,2020-05-07,physician,PE,1,Medical ICU,Medical ICU #1
+001-0164-H-R,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0167-C-M,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0168-L-P,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0169-B-C,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0170-S-S,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0171-M-L,2020-05-06,2020-05-06,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0172-V-H,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0175-B-E,2020-05-07,2020-05-07,student nurse,PE,1,Medical ICU,Medical ICU #1
+001-0177-G-R,2020-05-07,2020-05-07,aux nurse,PE,1,Medical ICU,Medical ICU #1
+001-0183-L-E,2020-05-07,2020-05-07,administration,PE,1,Medical ICU,Medical ICU #1
+001-0188-B-A,2020-05-07,2020-05-07,physician,PE,1,Medical ICU,Medical ICU #1
+001-0189-O-F,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0190-D-A,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0191-H-I,2020-05-07,2020-05-07,nurse,PE,1,Medical ICU,Medical ICU #1
+001-0192-T-C,2020-05-06,2020-05-06,investigation,PE,1,Medical ICU,Medical ICU #1
+001-0193-O-L,2020-05-07,2020-05-07,investigation,PE,1,Medical ICU,Medical ICU #1
+001-0196-B-R,2020-05-07,2020-05-07,physician,PE,1,Medical ICU,Medical ICU #1
+001-0197-Q-E,2020-05-07,2020-05-07,other,PE,1,Medical ICU,Medical ICU #1
+001-0199-H-A,2020-05-06,2020-05-06,nurse,PE,1,Medical ICU,Medical ICU #1
+006-0013-G-O,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0014-G-H,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0027-G-R,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0028-D-A,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0031-B-O,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0033-B-C,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0034-F-A,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0035-A-A,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0036-P-Y,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0037-G-J,2020-05-13,2020-05-13,ext physician,PE,6,General paediatrics,General paediatrics
+006-0038-B-A,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0039-M-A,2020-05-13,2020-05-13,ext physician,PE,6,General paediatrics,General paediatrics
+006-0040-T-J,2020-05-13,2020-05-13,administration,PE,6,General paediatrics,General paediatrics
+006-0041-T-J,2020-05-13,2020-05-13,physician,PE,6,General paediatrics,General paediatrics
+006-0049-D-M,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0050-M-H,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0051-T-L,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0052-T-A,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0054-M-H,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0056-S-A,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0057-S-S,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0063-A-L,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0064-Q-J,2020-05-13,2020-05-13,aux nurse,PE,6,General paediatrics,General paediatrics
+006-0065-J-M,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0069-L-M,2020-05-13,2020-05-13,aux nurse,PE,6,General paediatrics,General paediatrics
+006-0070-D-J,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0075-A-M,2020-05-13,2020-05-13,patient,PA,6,General paediatrics,General paediatrics
+006-0076-A-S,2020-05-13,2020-05-13,visitor,V,6,General paediatrics,General paediatrics
+006-0077-B-Q,2020-05-13,2020-05-13,ext physician,PE,6,General paediatrics,General paediatrics
+006-0080-B-C,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0082-V-A,2020-05-13,2020-05-13,nurse,PE,6,General paediatrics,General paediatrics
+006-0083-V-L,2020-05-14,2020-05-14,aux nurse,PE,6,General paediatrics,General paediatrics
+006-0088-A-P,2020-05-14,2020-05-14,physician,PE,6,General paediatrics,General paediatrics
+006-0095-V-A,2020-05-14,2020-05-14,investigation,PE,6,General paediatrics,General paediatrics
+006-0097-C-M,2020-05-14,2020-05-14,nurse,PE,6,General paediatrics,General paediatrics
+006-0098-B-P,2020-05-14,2020-05-14,nurse,PE,6,General paediatrics,General paediatrics

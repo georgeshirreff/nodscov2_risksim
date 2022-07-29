@@ -1,0 +1,85 @@
+library(tidyverse)
+library(magrittr)
+library(ggplot2)
+library(lubridate)
+
+
+load("input/list_ward.RData")
+load("input/admission_ctc_nodscov2.RData")
+ward_hop_id <- read_csv("input/ward_hop_id.csv")
+newID_COVIDstat <- read_csv("input/typeID_COVIDstat.csv")
+# time spent per person and in each shift
+timespent_mins <- read_csv(file = "input/met_timespent_mins.csv")
+
+timespent <- timespent_mins %>% 
+  select(id, time_J1, time_N1, time_J2) %>% 
+  pivot_longer(-id, names_prefix = "time_", names_to = "shift", values_to = "total_mins")
+
+cats <- admission$catHosp %>% unique %>% sort
+# order them
+cats <- c("patient", "visitor", cats[cats != "investigation"], "investigation") %>% unique
+stats <- c("PA", "V", "PE")
+admission_types = admission %>% 
+  transmute(id, status, catHosp = factor(catHosp, cats))
+
+
+time_data <- timespent_mins %>% 
+  left_join(admission_types) %>% 
+  left_join(ward_hop_id) %>% 
+  mutate(hour_DATEREMISEJ1 = hour(DATEREMISEJ1) + as.numeric(difftime(DATEREMISEJ1 %>% as.Date, J1 %>% as.Date, units = "day"))*24
+         , hour_DATEREMISEJ2 = hour(DATEREMISEJ2) + as.numeric(difftime(DATEREMISEJ2 %>% as.Date, J1 %>% as.Date, units = "day"))*24
+         , hour_DATERECJ1 = hour(DATERECJ1) + as.numeric(difftime(DATERECJ1 %>% as.Date, J1 %>% as.Date, units = "day"))*24
+         , hour_DATERECJ2 = hour(DATERECJ2) + as.numeric(difftime(DATERECJ2 %>% as.Date, J1 %>% as.Date, units = "day"))*24
+  )
+
+
+
+
+
+
+
+# table with ward types and numbers
+
+# newID_COVIDstat <- read_csv("R_objects/newID_COVIDstat.csv")
+newID_COVIDstat <- read_csv("R_objects/typeID_COVIDstat.csv")
+pr_mat <- read_csv("output/Ajmal/newClustering/present.csv")
+
+
+SITab_wards <- ward_hop_id %>% 
+  mutate(Month1 = gsub(".*-20200([0-9])([0-9]{2})-20200([0-9])([0-9]{2})$", "\\1", list_ward_name) %>% as.numeric
+         , Day1 = gsub(".*-20200([0-9])([0-9]{2})-20200([0-9])([0-9]{2})$", "\\2", list_ward_name) %>% as.numeric
+         , Month2 = gsub(".*-20200([0-9])([0-9]{2})-20200([0-9])([0-9]{2})$", "\\3", list_ward_name) %>% as.numeric
+         , Day2 = gsub(".*-20200([0-9])([0-9]{2})-20200([0-9])([0-9]{2})$", "\\4", list_ward_name) %>% as.numeric
+  ) %>% 
+  arrange(Month1, Day1) %>% 
+  mutate(Month1 = month.name[Month1]
+         , Month2 = month.name[Month2]) %>% 
+  mutate(City = case_when(grepl("BORDEAUX", hosp_ward) ~ "Bordeaux"
+                          , grepl("LYON", hosp_ward) ~ "Lyon"
+                          , grepl("APHP", hosp_ward) ~ "Paris"
+  )) %>% 
+  left_join(newID_COVIDstat) %>% 
+  filter(!is.na(newID)) %>% 
+  left_join(pr_mat) %>% 
+  
+  # left_join(Didier_wardNames) %>% 
+  # filter(!is.na(DidierName)) %>% 
+  transmute(#ID = paste0("\\#", newID)
+            `Medical specialty` = gsub("#", "\\\\#", newID)
+            # , City
+            # , `COVID status` = COVIDstat
+            , `Date of investigation` = paste0("2020, ", Month1, " ", Day1, "-", Day2)
+            , `Total hospital users` = totalN
+            , `Peak hospital users` = peakN)
+
+SITab_wards %>% 
+  transmute(Latex = paste(#ID
+                          `Medical specialty`
+                          # , City, `COVID status`
+                          ,  `Date of investigation`
+                          , `Total hospital users`
+                          , `Peak hospital users`, sep = " & ")) %>% 
+  pull(Latex) %>% 
+  cat(sep = " \\\\\n")
+
+
