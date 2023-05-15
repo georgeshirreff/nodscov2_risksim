@@ -105,7 +105,7 @@ list_ward_thisthat_saveid <- list_ward %>%
 ##############################
 #### analysis of the data ####
 ##############################
-
+ 
 # this is the one we want to be our master id-level table for calculating matrices, R0s and even exclusions
 
 matrix_data2_allrow <- list_ward_thisthat_saveid %>% 
