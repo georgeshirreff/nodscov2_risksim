@@ -1,3 +1,6 @@
+#######################
+#### load packages ####
+#######################
 library(tidyverse)
 library(magrittr)
 library(ggplot2)
@@ -8,6 +11,10 @@ library(GGally)
 library(igraph)
 library(lemon)
 
+###################
+#### read data ####
+###################
+
 # list_ward <- read_csv("input/list_ward_complete.csv")
 # admission <- read_csv("input/id_function_complete.csv")
 # timespent_mins <- read_csv(file = "input/met_timespent_mins_complete.csv")
@@ -15,6 +22,11 @@ list_ward <- read_csv("input/list_ward_partial.csv")
 admission <- read_csv("input/id_function_partial.csv")
 timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
+
+
+#########################
+#### prepare objects ####
+#########################
 
 cats <- admission$catHosp %>% unique %>% sort
 # order them
@@ -26,6 +38,10 @@ admission_types = admission %>%
 # function determining probability of infection per duration of contact
 sig <- function(x, a) (1 - exp(-x* a))/(1 + exp(-x* a))
 a = 0.1
+
+################################
+#### pivot the contact data ####
+################################
 
 list_ward_thisthat_saveid <- list_ward %>% 
   left_join(admission_types %>% rename_all(function(x) paste0(x, "_from")), by = c("from" = "id_from")) %>% 
@@ -78,6 +94,9 @@ list_ward_thisthat_saveid <- list_ward %>%
   select(-id_from, -id_to)
 
 
+##############################
+#### analysis of the data ####
+##############################
 
 #### total duration of study in each ward ####
 ward_Ttotal <- timespent_mins %>% transmute(newID, Ttotal = difftime(N2, J1, units = "mins") %>% as.numeric) %>% unique
@@ -92,8 +111,6 @@ ward_hours2 <- timespent_mins %>%
   summarise(time_total = mean(time_total)) %>% 
   left_join(ward_Ttotal) %>% 
   mutate(Hbar = 24/Ttotal*time_total)
-
-
 
 # connectivity measures for each individual
 

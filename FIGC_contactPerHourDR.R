@@ -1,3 +1,8 @@
+
+#######################
+#### load packages ####
+#######################
+
 library(tidyverse)
 library(magrittr)
 library(ggplot2)
@@ -8,6 +13,9 @@ library(GGally)
 library(igraph)
 library(egg)
 
+###################
+#### read data ####
+###################
 
 # list_ward <- read_csv("input/list_ward_complete.csv")
 # admission <- read_csv("input/id_function_complete.csv")
@@ -18,6 +26,9 @@ timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
 Label_tib <- read_csv("input/newID_order.csv")
 
+#########################
+#### prepare objects ####
+#########################
 
 timespent <- timespent_mins %>% 
   select(id, time_J1, time_N1, time_J2) %>% 
@@ -35,6 +46,10 @@ admission_types = admission %>%
 # function determining probability of infection per duration of contact
 sig <- function(x, a) (1 - exp(-x* a))/(1 + exp(-x* a))
 a = 0.1
+
+################################
+#### pivot the contact data ####
+################################
 
 list_ward_thisthat_saveid <- list_ward %>% 
   left_join(admission_types %>% rename_all(function(x) paste0(x, "_from")), by = c("from" = "id_from")) %>% 
@@ -87,6 +102,9 @@ list_ward_thisthat_saveid <- list_ward %>%
   select(-id_from, -id_to)
 
 
+##############################
+#### analysis of the data ####
+##############################
 
 #### total duration of study in each ward ####
 ward_Ttotal <- timespent_mins %>% transmute(id, Ttotal = difftime(N2, J1, units = "mins") %>% as.numeric) %>% 
@@ -141,24 +159,6 @@ matrix_data2 <- list_ward_thisthat_saveid %>%
   select(newID, this_status, id, total_mins, that_status
          , n_contacts, contacts_per_hour, dur_mins, pInfPerContact)
 
-# here is how to reproduce the generic table (matrix_mean2_gen) from the id-level one (matrix_mean2)
-matrix_data2 %>% 
-  group_by(newID, id) %>% 
-  summarise(dur_mins = sum(dur_mins*n_contacts, na.rm = T)/sum(ifelse(!is.na(dur_mins), n_contacts, 0))
-            , pInfPerContact = sum(pInfPerContact*n_contacts, na.rm = T)/sum(ifelse(!is.na(pInfPerContact), n_contacts, 0))
-            , contacts_per_hour = sum(contacts_per_hour)
-            , n_contacts = sum(n_contacts)) %>% 
-  group_by(newID) %>% 
-  summarise_at(c("contacts_per_hour", "dur_mins", "pInfPerContact"), mean) %>% 
-  # left_join(Didier_wardNames %>% 
-  #             transmute(ward_id
-  #                       , DidierLabel = paste0("#", ward_id, " ", DidierName)
-  #                       , DidierLabel = factor(DidierLabel, levels = unique(DidierLabel)))) %>% 
-  # filter(!is.na(DidierLabel)) %>% 
-  ungroup %>%
-  left_join(ward_hours2 %>% select(newID, Hbar)) %>%
-  mutate(daily_risk = replace_na(pInfPerContact, replace = 0)*contacts_per_hour*Hbar) %>% 
-  select(newID, contacts_per_hour, dur_mins, pInfPerContact, Hbar, daily_risk)
 
 
 # from everyone to everyone
@@ -201,6 +201,7 @@ complete_DR_thisstatus <- complete_DR_status %>%
          , dur_mins = NA) %>% 
   select(newID, this_status, contacts_per_hour, dur_mins, pInfPerContact, Hbar, daily_risk)
 
+#### prepare boxplot accessory ####
 
 whisker_top = function(x) {
   lqr = quantile(x, prob = 0.25);
@@ -230,6 +231,7 @@ boxplot_DR_gen <- complete_DR_gen %>%
 
 
 
+#### make main plot ####
 
 # complete_DR_gen$daily_risk %>% range
 DR_plot <-
@@ -278,19 +280,13 @@ DR_barplot_boxplot <- egg::ggarrange(DR_plot, DR_boxplot, ncol = 2, widths = c(2
 ggsave(DR_barplot_boxplot, filename = "output/Fig_DAR_boxplots.pdf", width = 23, height = 25, units = "cm", device = "pdf")
 
 
-Label_tib
+# additional plot showing averagehours spent on ward
+
 Hbar_plot <-
   rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
         , complete_DR_thisstatus %>% mutate(that_status = "ALL")
         , complete_DR_status) %>% 
   mutate(newID = factor(newID, levels = Label_tib$newID)) %>% 
-  # left_join(newID_COVIDstat %>%
-  #             transmute(ward_id
-  #                       , newname = newID
-  #                       # , newname = paste0(newID, "\n(", COVIDstat, ")")
-  #             ) %>%
-  #             mutate(newname = factor(newname, levels = newname))) %>%
-  # filter(!is.na(newname)) %>%
   mutate_at(c("this_status", "that_status"), function(x) factor(x, levels = c("ALL", "PA", "V", "PE"))) %>% 
   # mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
   mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
@@ -326,14 +322,6 @@ ggsave(Hbar_plot, filename = "output/Fig_Hbar.png", width = 20, height = 10, uni
 
 
 
-# output table for use in clustering
-
-if(F){
-  complete_DR_status %>%
-    left_join(newID_COVIDstat) %>%
-    select(newID, this_status, that_status, daily_risk) %>%
-    write_csv("output/daily_risk.csv")
-}
 
 
 #### some numbers for the paper ####
