@@ -342,9 +342,16 @@ DR_excl_excllevel <- DR_excl %>%
                group_by(newID, newID, combcat, exclusion_level) %>% 
                summarise_if(is.numeric, mean) %>% 
                mutate(excl = "rand"))} %>% 
-  mutate(wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
-                                     , wardType == "Infectious Diseases" ~ "Infectious diseases"
-                                     , T ~ wardType) 
+  # mutate(wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
+  #                                    , wardType == "Infectious Diseases" ~ "Infectious diseases"
+  #                                    , T ~ wardType)
+  # ) %>%
+  mutate(wardTypeCombine = case_when(DidierName == "Infectious Diseases" ~ "Infectious diseases"
+                                     , DidierName %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
+                                     , DidierName == "Pediatric" ~ "General paediatrics"
+                                     , DidierName == "Neonatology" ~ "Neonatal ICU"
+                                     , DidierName == "Pediatric emergency" ~ "Paediatric emergency"
+                                     , T ~ DidierName) 
   ) %>% 
   mutate(wardTypeCombine = wardTypeCombine %>% factor %>% fct_infreq) %>% 
   arrange(newID, excl, combcat, exclusion_level) %>% 
@@ -386,6 +393,10 @@ DR_pctChange_excllevel_itt_bar = DR_pctChange_excllevel %>%
 
 DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
   filter(excludeby %in% c("Random", "Degree", "Contact hours")) %>% 
+  mutate(excludeby = fct_recode(excludeby
+                                , `Total contact hours` = "Contact hours"
+                                , `Total distinct contacts` = "Degree"
+  )) %>% 
   
   # filter(supposed_to_exclude == n_excluded) %>% 
   ggplot(aes(x = exclusion_pct, colour = newID)) + geom_jitter(aes(y = DR_reduction, shape = wardTypeCombine),  size = 1, width = 0.2) + 
@@ -404,7 +415,8 @@ DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
                                 , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5)) + 
   labs(y = "Reduction in number of secondary infections per day per infected individual"
        , x = "Proportion of the hospital population to be targeted"
-       , caption = expression(frac(DR[baseline]-DR,DR[baseline])), shape = "Ward type") #+ 
+       # , caption = expression(frac(DR[baseline]-DR,DR[baseline]))
+       , shape = "Ward type") #+ 
 # coord_cartesian(ylim = c(0, NA))
 
 ggsave("output/Fig_DARreduction_levels.pdf", device = "pdf"

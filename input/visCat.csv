@@ -1,0 +1,16 @@
+newID,visCat
+Adult emergency #2,Centralised
+Adult emergency #1,Centralised
+Paediatric emergency,Centralised
+Internal medicine,Even
+Infectious diseases #2,Even
+Infectious diseases #1,Even
+Geriatry #2,Split
+Geriatry #1,Split
+Surgical ICU,DenseCentre
+Medical ICU #2,DenseCentre
+Infectious diseases #3,Split
+Pneumology,DenseCentre
+Medical ICU #1,DenseCentre
+Neonatal ICU,Split
+General paediatrics,Even

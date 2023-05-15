@@ -16,6 +16,9 @@ list_ward <- read_csv("input/list_ward_partial.csv")
 admission <- read_csv("input/id_function_partial.csv")
 timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
+Label_tib <- read_csv("input/newID_order.csv")
+
+
 timespent <- timespent_mins %>% 
   select(id, time_J1, time_N1, time_J2) %>% 
   pivot_longer(-id, names_prefix = "time_", names_to = "shift", values_to = "total_mins")
@@ -237,7 +240,10 @@ DR_plot <-
   # mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
   mutate_at(c("that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
   mutate_at(c("this_status"), function(x) factor(x, labels = paste0("Index case = ", c("any", "patient", "visitor", "healthcare worker")))) %>% 
-  ggplot(aes(x = newID, y = daily_risk, fill = that_status)) + geom_bar(stat = "identity", position = "dodge") + 
+  ggplot(aes(x = newID, y = daily_risk, fill = that_status)) + 
+  geom_bar(stat = "identity", position = position_dodge(width=0.8)
+           , width = 0.8
+  ) + 
   facet_grid(this_status~.) +
   scale_fill_manual(values = c(All = "grey70", Patients = "red", Visitors = "black", HCWs = "blue")) + 
   theme_bw() + 
@@ -270,6 +276,53 @@ DR_boxplot <- rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status 
 DR_barplot_boxplot <- egg::ggarrange(DR_plot, DR_boxplot, ncol = 2, widths = c(20, 3))
 
 ggsave(DR_barplot_boxplot, filename = "output/Fig_DAR_boxplots.pdf", width = 23, height = 25, units = "cm", device = "pdf")
+
+
+Label_tib
+Hbar_plot <-
+  rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
+        , complete_DR_thisstatus %>% mutate(that_status = "ALL")
+        , complete_DR_status) %>% 
+  mutate(newID = factor(newID, levels = Label_tib$newID)) %>% 
+  # left_join(newID_COVIDstat %>%
+  #             transmute(ward_id
+  #                       , newname = newID
+  #                       # , newname = paste0(newID, "\n(", COVIDstat, ")")
+  #             ) %>%
+  #             mutate(newname = factor(newname, levels = newname))) %>%
+  # filter(!is.na(newname)) %>%
+  mutate_at(c("this_status", "that_status"), function(x) factor(x, levels = c("ALL", "PA", "V", "PE"))) %>% 
+  # mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
+  mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
+  # mutate_at(c("this_status"), function(x) factor(x, labels = paste0("Index case = ", c("any", "patient", "visitor", "healthcare worker")))) %>% 
+  ggplot(aes(x = newID, y = Hbar, fill = this_status)) +
+  geom_bar(stat = "identity"
+           , position = position_dodge(width=0.8)
+           , width = 0.8
+  ) + 
+  scale_fill_manual(values = c(All = "grey70", Patients = "red", Visitors = "black", HCWs = "blue")) + 
+  # facet_grid(this_status~.) +
+  theme_bw() + 
+  labs(x = "", y = "Average hours spent\non ward in 24 hours", fill = "") + 
+  # geom_text(aes(x = 1, y = 60, label = this_status), hjust = 0, size = 6) +
+  # geom_text(x = 1, y = 0.8, colour = "black", aes(label = fac_label)
+  #           , data = tibble(fac_label = paste("Index case =", c("any", "patient", "visitor", "healthcare worker"))
+  #                           , this_status = paste("Index case =", c("any", "patient", "visitor", "healthcare worker")))
+  #           ) +
+  
+  # annotate("text", aes(x= 1, y = 0.8, label = label), data = tibble(label = paste("Index case =", c("any", "patient", "visitor", "healthcare worker")))) 
+  theme(panel.grid = element_blank()
+        , axis.text.x = element_text(angle = 45, hjust = 1)
+        , plot.margin = unit(c(1, 1, 1, 1), "cm")
+        , strip.text = element_blank()
+        , strip.background.y = element_rect(fill = "white")
+        , legend.direction = "horizontal", legend.position = "top"
+  ) + 
+  geom_vline(xintercept = seq(0.5, by = 1, length.out = 15), color="lightgray", size=.5, alpha=.5) # set vertical lines between x groups
+Hbar_plot
+
+ggsave(Hbar_plot, filename = "output/Fig_Hbar.pdf", width = 20, height = 10, units = "cm", device = "pdf")
+ggsave(Hbar_plot, filename = "output/Fig_Hbar.png", width = 20, height = 10, units = "cm")
 
 
 

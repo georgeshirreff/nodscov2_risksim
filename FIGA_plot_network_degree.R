@@ -22,12 +22,19 @@ library(scales)
 
 # read files
 
-# list_ward <- read_csv("input/list_ward_complete.csv")
-# admission <- read_csv("input/id_function_complete.csv")
+# list_ward <- read_csv("input/Private/list_ward_complete.csv")
+# admission <- read_csv("input/Private/id_function_complete.csv")
 list_ward <- read_csv("input/list_ward_partial.csv")
 admission <- read_csv("input/id_function_partial.csv")
 
 pers_symb <- read_csv("input/personnel_symbols.csv")
+pers_symb_lab <- read_csv("input/personnel_symbols_label.csv")
+
+# visual categorisation of ward networks
+vis <- read_csv("input/visCat.csv")
+
+# ward labels
+Label_tib <- read_csv("input/newID_order.csv")
 
 # prepare objects
 
@@ -72,12 +79,11 @@ contact_hours = list_ward_thisthat %>%
  mutate(hours_in_contact = dur_mins/60)
 
 
-# ward labels
 
-Label_tib <- newID_COVIDstat %>% 
-  # mutate(newname = paste0("#", newID, ". ", DidierName, "\n", COVIDstat))
-  # mutate(newname = paste0(newID, "\n", COVIDstat))
-  mutate(newname = newID)
+# Label_tib <- newID_COVIDstat %>% 
+#   # mutate(newname = paste0("#", newID, ". ", DidierName, "\n", COVIDstat))
+#   # mutate(newname = paste0(newID, "\n", COVIDstat))
+#   mutate(newname = newID)
 
 conn_tibble = tibble(newID = character(0), status = character(0), catSymb = character(0)
                    , degree = numeric(0), betweenness = numeric(0), closeness = numeric(0))
@@ -102,6 +108,7 @@ for(titl in ward_names){
   V(mygraph)$status = vertex_characteristics$status
   V(mygraph)$catHosp = vertex_characteristics$catHosp
   V(mygraph)$catSymbol <- pers_symb$catSymbol2[match(V(mygraph)$catHosp, pers_symb$catHosp)]
+  
   
   
   # E(mygraph)$shift = mat.shift$shift
@@ -142,7 +149,7 @@ for(titl in ward_names){
 
     names(degree(mygraph))
   conn_tibble <- rbind(conn_tibble
-        , tibble(newID = ward
+        , tibble(newID = titl
                  , id = V(mygraph)$name
                  , status = V(mygraph)$status
                  , catSymbol = V(mygraph)$catSymbol
@@ -156,8 +163,55 @@ for(titl in ward_names){
 }
 
 
+# create network figure
 
+# gg_nets <- gg_nets[Label_tib$newID]
+# 
+# ggsave(filename = "output/Fig_networks.pdf"
+#        , arrangeGrob(grobs = gg_nets, ncol = 3)
+#        , units = "cm", width = 40, height = 60, dpi = 100, device = "pdf") 
+
+
+gg_nets_split <- gg_nets[vis$newID[vis$visCat == "Split"]]
+gg_nets_even <- gg_nets[vis$newID[vis$visCat == "Even"]]
+gg_nets_dens <- gg_nets[vis$newID[vis$visCat == "DenseCentre"]]
+gg_nets_centr <- gg_nets[vis$newID[vis$visCat == "Centralised"]]
+
+pers_symb_lab_mat <- pers_symb_lab %>% as.matrix
+colnames(pers_symb_lab_mat) = NULL
+pers_legend <- ggtexttable(pers_symb_lab_mat
+                           , theme = ttheme("blank"
+                                            # , colnames.style = colnames_style(size = 0, fill = "white", color = "white")
+                                            # , rownames.style = rownames_style(size = 0)
+                                            #                  , tbody.style = tbody_style(color = "blue",
+                                            #                                              fill = c("white"), hjust=0, x=0)
+                           )
+) %>%
+  table_cell_font(row = 1, col = 1:2, color = "red") %>%
+  table_cell_font(row = 2, col = 1:2, color = "black") %>% 
+  table_cell_font(row = 3:7, col = 1:2, color = "blue")
+
+
+gg_nets_centr[["legend"]] <- pers_legend
+
+
+
+ggsave(# filename = "output/Didier/BigPaper/Fig_networks_categorised.pdf"
+  filename = "output/Fig_networks_categorised.jpg"
+  , arrangeGrob(arrangeGrob(grobs = gg_nets_split
+                            , left = textGrob("Split", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
+                , arrangeGrob(grobs = gg_nets_even
+                              , left = textGrob("Even", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
+                , arrangeGrob(grobs = gg_nets_dens
+                              , left = textGrob("Dense\ncentre", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
+                , arrangeGrob(grobs = gg_nets_centr
+                              , left = textGrob("Centralised", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
+                , ncol = 1)
   
+  , units = "cm", width = 50, height = 60, dpi = 600
+  , device = "jpeg"
+  # , device = "pdf"
+)
 
 # create connectivity table
 
@@ -188,27 +242,40 @@ conn_tibble_all <- conn_tibble %>%
                                   , T ~ status)) %>% 
   mutate(status_label = factor(status_label, c("All", "Patient", "Visitor", "HCW", "Nurse", "Physician", "Administration/\nLogistic", "Other HCW")))
 
-# create violin plots
 
-deg_violin <- newID_COVIDstat %>% 
+
+
+deg_horiz_violin <- Label_tib %>% 
   left_join(conn_tibble_all) %>% 
+  mutate(status_label = fct_rev(status_label)) %>% 
   pivot_longer(cols = c("degree", "closeness", "betweenness", "hours_in_contact")) %>% 
   mutate(name = str_to_title(name) %>% {gsub("_", " ", .)} ) %>% 
   filter(name %in% c("Degree")) %>% 
   
-  group_by(status_label) %>% mutate(mean = mean(value)
-                                    , median = median(value)) %>% ungroup %>% 
+  group_by(status_label) %>% 
+  mutate(mean = mean(value)
+         , median = median(value)) %>% 
+  ungroup %>% 
+  # select(status_label, name, value, mean, median) -> z
+  
   
   # filter(name %in% c("Degree", "Hours in contact")) %>% 
-  ggplot(aes(x = status_label, fill = status_label)) +
-  geom_violin(aes(y = value), colour = NA, scale = "count", ) +
-  geom_vline(xintercept = 4.5, linetype = "dashed") + 
-  geom_crossbar(aes(y = mean, ymin = mean, ymax = mean)
-                , size=0.5,col="orange", width = .5) +
+  # ggplot(aes(x = status_label, fill = status_label)) +
+  # geom_violin(aes(y = value), colour = NA, scale = "count", ) +
+  # geom_vline(xintercept = 4.5, linetype = "dashed") + 
+  # geom_crossbar(aes(y = mean, ymin = mean, ymax = mean)
+  #               , size=0.5,col="orange", width = .5) +
+  
+  ggplot(aes(y = status_label, fill = status_label)) +
+  geom_violin(aes(x = value), colour = NA, scale = "area") +
+  geom_hline(yintercept = 4.5, linetype = "dashed") + 
+  geom_point(aes(x = median, y = status_label), col = 'orange', size = 1.5) +
+  # geom_crossbar(aes(x = mean, xmin = mean, xmax = mean)
+  #               , size=0.5,col="orange", width = .5) +
   # geom_crossbar(aes(y = median, ymin = median, ymax = median)
   #               , size=0.5,col="purple", width = .5) +
   
-  facet_grid(name~., scales = "free_y", switch = "y") + 
+  # facet_grid(name~., scales = "free_y", switch = "y") + 
   
   # scale_y_continuous(trans = "log10", breaks = waiver()) +
   scale_fill_manual(values = c(All = "grey70"
@@ -220,14 +287,14 @@ deg_violin <- newID_COVIDstat %>%
   guides(fill = "none") +
   theme(strip.placement = "outside"
         , strip.background = element_blank()
-        , axis.text.x = element_blank()
+        # , axis.text.x = element_blank()
   ) + 
-  labs(x = "", y = "", fill = "") 
+  labs(x = "Number of distinct contacts\nover period of study", y = "", fill = "") 
 
-deg_violin
 
-hrs_violin <- newID_COVIDstat %>% 
+hrs_horiz_violin <- Label_tib %>% 
   left_join(conn_tibble_all) %>% 
+  mutate(status_label = fct_rev(status_label)) %>% 
   pivot_longer(cols = c("degree", "closeness", "betweenness", "hours_in_contact")) %>% 
   mutate(name = str_to_title(name) %>% {gsub("_", " ", .)} ) %>% 
   filter(name %in% c("Hours in contact")) %>% 
@@ -236,16 +303,17 @@ hrs_violin <- newID_COVIDstat %>%
                                     , median = median(value)) %>% ungroup %>% 
   
   # filter(name %in% c("Degree", "Hours in contact")) %>% 
-  ggplot(aes(x = status_label, fill = status_label)) +
-  geom_violin(aes(y = value), colour = NA, scale = "count", ) +
-  geom_vline(xintercept = 4.5, linetype = "dashed") + 
-  geom_crossbar(aes(y = mean, ymin = mean, ymax = mean)
-                , size=0.5,col="orange", width = .5) +
+  ggplot(aes(y = status_label, fill = status_label)) +
+  geom_violin(aes(x = value), colour = NA, scale = "area") +
+  geom_hline(yintercept = 4.5, linetype = "dashed") + 
+  geom_point(aes(x = median, y = status_label), col = 'orange', size = 1.5) +
+  # geom_crossbar(aes(y = mean, ymin = mean, ymax = mean)
+  #               , size=0.5,col="orange", width = .5) +
   # geom_crossbar(aes(y = median, ymin = median, ymax = median)
   #               , size=0.5,col="purple", width = .5) +
   
-  facet_grid(name~., scales = "free_y", switch = "y") + 
-  scale_y_continuous(trans = "log10", breaks = waiver()) +
+  # facet_grid(name~., scales = "free_y", switch = "y") + 
+  scale_x_continuous(trans = "log10", breaks = waiver(), labels = function(x) format(x, scientific = F, trim = T, drop0trailing = T)) +
   scale_fill_manual(values = c(All = "grey70"
                                , Patient = "red", Visitor = "black", HCW = "blue"
                                , Nurse = "cornflowerblue", Physician = "cornflowerblue"
@@ -255,37 +323,26 @@ hrs_violin <- newID_COVIDstat %>%
   guides(fill = "none") +
   theme(strip.placement = "outside"
         , strip.background = element_blank()
-        # , axis.text.x = element_blank()
+        , axis.text.y = element_blank()
   ) + 
-  labs(x = "", y = "", fill = "") 
+  labs(x = "Total hours in contact\nover period of study", y = "", fill = "") 
+hrs_horiz_violin
+deghrs_horiz_violin <- arrangeGrob(deg_horiz_violin, hrs_horiz_violin, ncol = 2)
 
-deghrs_violin <- arrangeGrob(deg_violin, hrs_violin, nrow = 2)
 
 
-# combine violin plots
 
-deg_grob <- ggplotGrob(deg_violin)
-hrs_grob <- ggplotGrob(hrs_violin)
-g <- rbind(deg_grob, hrs_grob, size = "first")
-g$widths <- unit.pmax(deg_grob$widths, hrs_grob$widths)
+deg_horiz_grob <- ggplotGrob(deg_horiz_violin)
+hrs_horiz_grob <- ggplotGrob(hrs_horiz_violin)
+g <- cbind(deg_horiz_grob, hrs_horiz_grob, size = "first")
+g$heights <- unit.pmax(deg_horiz_grob$heights, hrs_horiz_grob$heights)
 grid.newpage()
 grid.draw(g)
 
-ggsave(g, filename = "output/Fig_violin.pdf", width = 20, height = 10, units = "cm", device = "pdf")
-
-
-# create network figure
-
-gg_nets <- gg_nets[Label_tib$newname]
-
-ggsave(filename = "output/Fig_networks.pdf"
-       , arrangeGrob(grobs = gg_nets, ncol = 3)
-       , units = "cm", width = 40, height = 60, dpi = 100, device = "pdf") 
-
-
-        
-
-
+# ggsave(g, filename = "output/Didier/BigPaper/Connectivity_violins_deghrs.png", width = 20, height = 10, units = "cm", device = "png")
+# ggsave(g, filename = "output/Didier/BigPaper/Connectivity_violins_deghrs.pdf", width = 20, height = 10, units = "cm", device = "pdf")
+ggsave(g, filename = "output/Fig_horiz_violin.pdf", width = 15, height = 10, units = "cm", device = "pdf")
+ggsave(g, filename = "output/Fig_horiz_violin.png", width = 15, height = 10, units = "cm")
 
 
 
