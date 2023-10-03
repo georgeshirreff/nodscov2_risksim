@@ -23,8 +23,7 @@ timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv
 # admission <- read_csv("input/id_function_partial.csv")
 # timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
-# ward labels
-Label_tib <- read_csv("input/newID_order.csv")
+
 
 #########################
 #### prepare objects ####
@@ -234,8 +233,9 @@ for(w_id in w_id_vec){
   n_to_exclude = round(w_nIDs * (1 - exclusion_level))
   
   # this_combcat = "HCW"
-  for(this_combcat in combcats){
+  for(this_combcat in combcats[1:4]){
     # print(stat)
+    print(this_combcat)
     if(this_combcat == "All"){
       percrank_ct = percrank %>% filter(newID == w_id)
     } else if (this_combcat == "HCW") {
@@ -245,9 +245,12 @@ for(w_id in w_id_vec){
     }
     for(excl in c("none"
                   # , "rand1", "rand2", "rand3"
-                  , paste0("rand", 1:n_rands)
-                  , "deg", "btw", "cls", "dur")){
-      # print(excl)
+                  # , paste0("rand", 1:n_rands)
+                  , "deg"
+                  # , "btw"
+                  # , "cls"
+                  , "dur")){
+      print(excl)
       if(excl == "none"){
         ids_toexclude_ward = percrank_ct %>% 
           mutate(excluded = F) %>% 
@@ -292,77 +295,88 @@ for(w_id in w_id_vec){
       n_excluded = length(ids_toexclude_ward)
       
       # print(c(w_id, stat, excl, w_nIDs, n_to_exclude, n_excluded))
-      
-      DR_this <- list_ward_thisthat_saveid %>% 
-        mutate(pInfPerContact = sig(dur_mins, a/60)) %>%
-        filter(newID == w_id) %>% 
-        # filter(!(id %in% ids_toexclude_ward) #use this to exclude them altogether
-        #        , !(other_id %in% ids_toexclude_ward)
-        #        ) %>%
-        mutate(pInfPerContact_excl = case_when(id %in% ids_toexclude_ward ~ 0
-                                               , other_id %in% ids_toexclude_ward ~ 0
-                                               , T ~ pInfPerContact)
-               # , dur_mins_excl = case_when(id %in% ids_toexclude_ward ~ 0
-               #                           , other_id %in% ids_toexclude_ward ~ 0
-               #                           , T ~ dur_mins)
-               ) %>% 
-        group_by(newID, wardType, id) %>% 
-        summarise(#n_contacts = n()
-                  n_contacts = length(unique(other_id)) 
-                  # , dur_mins = mean(dur_mins)
-                  , pInfPerContact = mean(pInfPerContact_excl)
-                  , .groups = "keep") %>% 
-        left_join(timespent %>%
+      effectiveness_vec = seq(1, 0.5, by = -0.1)
+      for(effectiveness in effectiveness_vec){
+        print(effectiveness)
+        
+        DR_this <- list_ward_thisthat_saveid %>% 
+          mutate(pInfPerContact = sig(dur_mins, a/60)) %>%
+          filter(newID == w_id) %>% 
+          # filter(!(id %in% ids_toexclude_ward) #use this to exclude them altogether
+          #        , !(other_id %in% ids_toexclude_ward)
+          #        ) %>%
+          mutate(pInfPerContact_excl = case_when(id %in% ids_toexclude_ward ~ (1-effectiveness)*pInfPerContact
+                                                 , other_id %in% ids_toexclude_ward ~ (1-effectiveness)*pInfPerContact
+                                                 , T ~ pInfPerContact)
+                 # , dur_mins_excl = case_when(id %in% ids_toexclude_ward ~ 0
+                 #                           , other_id %in% ids_toexclude_ward ~ 0
+                 #                           , T ~ dur_mins)
+          ) %>% 
+          group_by(newID, wardType, id) %>% 
+          summarise(#n_contacts = n()
+            n_contacts = length(unique(other_id)) 
+            # , dur_mins = mean(dur_mins)
+            , pInfPerContact = mean(pInfPerContact_excl)
+            , .groups = "keep") %>% 
+          left_join(timespent %>%
                       group_by(id) %>%
                       summarise(total_mins = sum(total_mins))
-                  , by = "id") %>%
-        mutate(contacts_per_hour = n_contacts/(total_mins/60)) %>% 
-        # mutate(prod = contacts_per_hour*ifelse(is.na(dur_mins), 0, dur_mins)) %>% 
-        group_by(newID, wardType) %>% 
-        summarise_at(c("n_contacts", "contacts_per_hour", "pInfPerContact"
-                       # , "dur_mins", "prod"
-                       ), ~mean(.x, na.rm = T)) %>% 
-        ungroup %>%
-        left_join(ward_hours2 %>% select(newID, Hbar)
-                  , by = "newID") %>%
-        mutate(daily_risk = pInfPerContact*contacts_per_hour*Hbar)
-      
-
-      
-      if(is.null(DR_excl)){
-        DR_excl <- DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
-                                            , w_nIDs = w_nIDs
-                                            , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
-                                            , n_excluded = n_excluded
-                                            , pInfPerContact, contacts_per_hour, Hbar, daily_risk)   
-      } else {
-        DR_excl <- rbind(DR_excl
-                            , DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
-                                                    , w_nIDs = w_nIDs
-                                                    , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
-                                                    , n_excluded = n_excluded
-                                                    , pInfPerContact, contacts_per_hour, Hbar, daily_risk)      )
+                    , by = "id") %>%
+          mutate(contacts_per_hour = n_contacts/(total_mins/60)) %>% 
+          # mutate(prod = contacts_per_hour*ifelse(is.na(dur_mins), 0, dur_mins)) %>% 
+          group_by(newID, wardType) %>% 
+          summarise_at(c("n_contacts", "contacts_per_hour", "pInfPerContact"
+                         # , "dur_mins", "prod"
+          ), ~mean(.x, na.rm = T)) %>% 
+          ungroup %>%
+          left_join(ward_hours2 %>% select(newID, Hbar)
+                    , by = "newID") %>%
+          mutate(daily_risk = pInfPerContact*contacts_per_hour*Hbar)
+        
+        
+        
+        if(is.null(DR_excl)){
+          DR_excl <- DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
+                                           , effectiveness
+                                           , w_nIDs = w_nIDs
+                                           , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
+                                           , n_excluded = n_excluded
+                                           , pInfPerContact, contacts_per_hour, Hbar, daily_risk)   
+        } else {
+          DR_excl <- rbind(DR_excl
+                           , DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
+                                                   , effectiveness
+                                                   , w_nIDs = w_nIDs
+                                                   , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
+                                                   , n_excluded = n_excluded
+                                                   , pInfPerContact, contacts_per_hour, Hbar, daily_risk)      )
+        }
+        
       }
       
     }
   }
 }
 
-  write_csv(DR_excl, "output/DR_excl.csv")
+  write_csv(DR_excl, "output/DR_excl_effectiveness.csv")
 
 } else {
-  DR_excl <- read_csv("output/DR_excl.csv")  
+  DR_excl_effectiveness <- read_csv("output/DR_excl_effectiveness.csv")  
 }
 
 
+  
 
-DR_excl <- DR_excl %>% 
+
+
+
+DR_excl_effectiveness <- DR_excl_effectiveness %>% 
   {bind_rows(filter(., substr(excl, start = 1, stop = 3) != "ran")
              , filter(., substr(excl, start = 1, stop = 3) == "ran") %>% 
                group_by(newID, wardType, combcat) %>% 
                summarise_if(is.numeric, mean) %>% 
                mutate(excl = "rand"))} %>% 
-  arrange(newID, excl, combcat) %>% 
+  arrange(newID, excl, combcat, effectiveness) %>% 
   mutate(excludeby = case_when(excl == "none" ~ "No exclusion"
                             # , excl == "rand1" ~ "rand1"
                             # , excl == "rand2" ~ "rand2"
@@ -383,8 +397,8 @@ mutate(wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU
 
 
 # proportional change for each
-DR_pctChange <- DR_excl %>% 
-  select(newID, wardTypeCombine, excludeby, combcat, daily_risk, supposed_to_exclude, n_excluded) %>% 
+DR_pctChange <- DR_excl_effectiveness %>% 
+  select(newID, wardTypeCombine, excludeby, combcat, effectiveness, daily_risk, supposed_to_exclude, n_excluded) %>% 
   {left_join(filter(., excludeby == "No exclusion") %>% rename(DR_baseline = daily_risk) %>% select(-excludeby, -n_excluded, -supposed_to_exclude)
              , filter(., excludeby != "No exclusion"))} %>% 
   # filter(supposed_to_exclude == n_excluded) %>% #excludes any rows where there were not enough individuals to exclude
@@ -399,167 +413,119 @@ DR_pctChange <- DR_excl %>%
 DR_pctChange_itt_bar = DR_pctChange %>%
   # R0_pctChange_cat_itt_bar = R0_changeVsRandom_cat %>%
   # filter(supposed_to_exclude == n_excluded) %>% 
-  group_by(excludeby, combcat) %>% 
+  group_by(excludeby, combcat, effectiveness) %>% 
   summarise(median_DR_ratio = median(DR_ratio)
             , median_DR_reduction = median(DR_reduction))
 
 # create plot
 
-redDARplot_4status <-
+redDARplot_effectiveness <-
   DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
   # filter(excludeby %in% c("Random", "Degree", "Contact hours")) %>% 
   filter(excludeby %in% c("Degree", "Contact hours")) %>% 
-  mutate(combcat = factor(combcat, levels = c("Patient", "Visitor", "HCW", "All"))) %>% 
+  mutate(combcat = factor(combcat, levels = c("All", "HCW", "Patient"))) %>% 
   filter(!is.na(combcat)) %>% 
   mutate(excludeby = fct_recode(excludeby
                                 , `Total\ncontact hours` = "Contact hours"
                                 , `Total\ndistinct contacts` = "Degree"
   )) %>% 
+  mutate(effectiveness_pct = paste0(effectiveness*100, "%")) %>% 
+  mutate(effectiveness_pct = factor(effectiveness_pct, levels = unique(effectiveness_pct))) %>% 
   ggplot(aes(x = excludeby, colour = newID)) + 
-  geom_jitter(aes(y = DR_reduction, shape = wardTypeCombine),  width = 0.2) +
+  geom_jitter(aes(y = DR_reduction, shape = wardTypeCombine),  width = 0.1) +
   # geom_jitter(aes(y = DR_reduction, shape = clusterAjmal),  width = 0.2) + 
   geom_crossbar(aes(y = median_DR_reduction
                     , ymin = median_DR_reduction
                     , ymax = median_DR_reduction
   )
-  , size=0.5,col="red", width = .5) +
+  , size=0.5,col="red", width = .2) +
+  # facet_grid(.~combcat)
   # facet_grid(which_row~factor(combcat, levels = combcats), drop = T) + 
-  facet_wrap(.~combcat) + 
+  # facet_nested_wrap(.~combcat + excludeby, nrow = 2) +
+  facet_grid(effectiveness_pct~ combcat) + 
   theme_bw() + 
   theme(legend.background = element_rect(linetype = 1, size = 0.5, colour = 1)
         # , axis.title.x = element_text(hjust = 0.1)
         ) + 
   guides(colour = F) +
   theme(strip.background = element_rect(fill = NA)) + 
-  scale_y_continuous(labels = function(x) scales::percent(x, accuracy = 1)) + 
+  scale_y_continuous(labels = function(x) scales::percent(x, accuracy = 1), limits = c(0, NA)) + 
   scale_shape_manual(values = c(`Neonatal ICU`=15,`General paediatrics`=16,`Paediatric emergency`=17
                                 , `Adult ICU`=0,`Internal medicine`=1,`Adult emergency`=2
                                 , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5)) + 
+  # scale_x_continuous(labels = scales::percent) + 
   
   # scale_shape_manual(values = c(`Neonatal ICU`=3,`General paediatrics`=5,`Paediatric emergency`=2
   #                               , `Adult ICU`=0,`Internal medicine`=16,`Adult emergency`=4
   #                               , `Infectious diseases`=1,`Geriatry`=15,`Pneumology`=17)) + 
-  labs(y = "Reduction in number of secondary infections per day per infected individual", x = "High risk individuals targeted by..."
+  labs(y = "Reduction in number of secondary infections per day per infected individual"
+       , x = "High risk individuals targeted by..."
+       
        # , caption = expression(frac(DAR[baseline]-DAR,DAR[baseline]))
        , shape = "Ward type") #+ 
 # coord_cartesian(ylim = c(0, NA))
 
-redDARplot_4status
 
 
 
-ggsave(plot = redDARplot_4status, "output/Fig_DARreduction.jpg", device = "jpeg"
-       , width = 20, height = 15, units = "cm", dpi = 600)
-
-ggsave(plot = redDARplot_4status, "output/Fig_DARreduction.pdf", device = "pdf"
-       , width = 20, height = 15, units = "cm")
+ggsave(plot = redDARplot_effectiveness, "output/Fig_DARreduction_effectiveness.jpg", device = "jpeg"
+       , width = 30, height = 25, units = "cm", dpi = 600)
 
 
-DR_pctChange_itt_bar
 
 
-redDARplot_barReduction_plotdata <-
+redDARplot_effectivenessX <-
   DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
   # filter(excludeby %in% c("Random", "Degree", "Contact hours")) %>% 
-  mutate(newID = factor(newID, levels = Label_tib$newID)) %>% 
-  
-  filter(excludeby %in% c("Degree", "Contact hours"
-                          # , "Random"
-                          )) %>% 
-  mutate(combcat = factor(combcat, levels = c("All", "HCW", "Patient", "Visitor"))) %>% 
+  filter(excludeby %in% c("Degree", "Contact hours")) %>% 
+  mutate(combcat = factor(combcat, levels = c("All", "HCW", "Patient"))) %>% 
   filter(!is.na(combcat)) %>% 
   mutate(excludeby = fct_recode(excludeby
                                 , `Total contact hours` = "Contact hours"
                                 , `Total distinct contacts` = "Degree"
-                                # , `At random` = "Random"
-  ))
-
-
-
-redDARplot_barReduction <- redDARplot_barReduction_plotdata %>% 
-  ggplot() + 
-  geom_bar(aes(x = newID, y = DR_reduction), stat = "identity", position = position_dodge(width=0.8), width = 0.2) +
-  # geom_segment(aes(x = newID, xend = newID, y = 0, yend = DR_reduction)) +
-  # geom_point(aes(x = newID, y = DR_reduction)) +
-  
-  geom_crossbar(data = redDARplot_barReduction_plotdata %>% 
-                  select(combcat, excludeby, median_DR_reduction) %>% 
-                  unique
-                  , aes(x = "Geriatry #1"
-                    , y = median_DR_reduction
+  )) %>% 
+  # mutate(effectiveness_pct = paste0(effectiveness*100, "%")) %>% 
+  # mutate(effectiveness_pct = factor(effectiveness_pct, levels = unique(effectiveness_pct))) %>% 
+  ggplot(aes(x = effectiveness, colour = newID)) + 
+  geom_jitter(aes(y = DR_reduction, shape = wardTypeCombine),  width = 0.02) +
+  # geom_jitter(aes(y = DR_reduction, shape = clusterAjmal),  width = 0.2) + 
+  geom_crossbar(aes(y = median_DR_reduction
                     , ymin = median_DR_reduction
                     , ymax = median_DR_reduction
-  ), size=0.2,col="red", width = 10, alpha = 0.8) +
-  geom_text(data = redDARplot_barReduction_plotdata %>% 
-              select(combcat, excludeby, median_DR_reduction) %>% 
-              unique
-            , aes(x = "Geriatry #1"
-                  , y = median_DR_reduction
-                  , label = paste0(round(median_DR_reduction*100), "%"))
-            , nudge_y = 0.05
-            , colour = "red"
-            , size = 3) + 
-  
+  )
+  , size=0.5,col="red", width = .05) +
+  # facet_grid(.~combcat)
   # facet_grid(which_row~factor(combcat, levels = combcats), drop = T) + 
-  facet_nested_wrap(.~excludeby + combcat, nrow = 2) + 
+  # facet_nested_wrap(.~combcat + excludeby, nrow = 2) +
+    facet_grid(excludeby~combcat) +
+  # facet_grid(effectiveness_pct~ combcat) + 
   theme_bw() + 
   theme(legend.background = element_rect(linetype = 1, size = 0.5, colour = 1)
-        , axis.text.x = element_text(angle = 45, hjust = 1)
         # , axis.title.x = element_text(hjust = 0.1)
   ) + 
   guides(colour = F) +
-  theme(strip.background = element_rect(fill = NA)
-        , axis.text.x = element_text(size = 6)
-        , panel.grid.major.x = element_blank()) + 
-  scale_y_continuous(labels = function(x) scales::percent(x, accuracy = 1)) + 
-  # scale_shape_manual(values = c(`Neonatal ICU`=15,`General paediatrics`=16,`Paediatric emergency`=17
-  #                               , `Adult ICU`=0,`Internal medicine`=1,`Adult emergency`=2
-  #                               , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5)) + 
+  theme(strip.background = element_rect(fill = NA)) + 
+  scale_y_continuous(labels = function(x) scales::percent(x, accuracy = 1), limits = c(0, NA)) + 
+  scale_shape_manual(values = c(`Neonatal ICU`=15,`General paediatrics`=16,`Paediatric emergency`=17
+                                , `Adult ICU`=0,`Internal medicine`=1,`Adult emergency`=2
+                                , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5)) + 
+  scale_x_continuous(labels = scales::percent) +
   
   # scale_shape_manual(values = c(`Neonatal ICU`=3,`General paediatrics`=5,`Paediatric emergency`=2
   #                               , `Adult ICU`=0,`Internal medicine`=16,`Adult emergency`=4
   #                               , `Infectious diseases`=1,`Geriatry`=15,`Pneumology`=17)) + 
-  labs(y = "Reduction in number of secondary infections\nper day per infected individual"
+  labs(y = "Reduction in number of secondary infections per day per infected individual"
        # , x = "High risk individuals targeted by..."
-       , x = ""
+       , x = "Effectiveness of intervention in those targeted"
        # , caption = expression(frac(DAR[baseline]-DAR,DAR[baseline]))
-       # , shape = "Ward type"
-  ) #+ 
-
-redDARplot_barReduction
+       , shape = "Ward type") #+ 
 # coord_cartesian(ylim = c(0, NA))
-ggsave(plot = redDARplot_barReduction, "output/redDARplot_barReduction.pdf", device = "pdf"
-       , width = 30, height = 15, units = "cm")
 
-ggsave(plot = redDARplot_barReduction, "output/redDARplot_barReduction.jpg", device = "jpeg"
+
+
+
+ggsave(plot = redDARplot_effectivenessX, "output/Fig_DARreduction_effectivenessX.jpg", device = "jpeg"
        , width = 30, height = 15, units = "cm", dpi = 600)
 
 
-
-###### some figures for the paper
-DR_pctChange_itt_bar$excludeby %>% table
-DR_pctChange_itt_bar %>% 
-  filter(excludeby == "Contact hours")
-
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("All", "HCW", "Patient")) %>% 
-  filter(excludeby %in% c("Random", "Degree", "Contact hours"))
-  
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("All")) %>% 
-  filter(excludeby %in% c("Random", "Degree", "Contact hours"))
-
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("Patient")) %>% 
-  filter(excludeby %in% c("Random", "Degree", "Contact hours"))
-
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("HCW")) %>% 
-  filter(excludeby %in% c("Random", "Degree", "Contact hours"))
-
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("All"))
-
-DR_pctChange_itt_bar %>% 
-  filter(combcat %in% c("Patient"))
  

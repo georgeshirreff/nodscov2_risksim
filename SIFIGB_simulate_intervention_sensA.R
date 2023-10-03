@@ -8,12 +8,12 @@ library(GGally)
 library(igraph)
 library(lemon)
 
-# list_ward <- read_csv("input/list_ward_complete.csv")
-# admission <- read_csv("input/id_function_complete.csv")
-# timespent_mins <- read_csv(file = "input/met_timespent_mins_complete.csv")
-list_ward <- read_csv("input/list_ward_partial.csv")
-admission <- read_csv("input/id_function_partial.csv")
-timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
+list_ward <- read_csv("input/Private/list_ward_complete.csv")
+admission <- read_csv("input/Private/id_function_complete.csv")
+timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv")
+# list_ward <- read_csv("input/list_ward_partial.csv")
+# admission <- read_csv("input/id_function_partial.csv")
+# timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
 
 timespent <- timespent_mins %>% 
@@ -32,7 +32,7 @@ a = 0.1
 
 # plot saturation curve
 
-# a_vec = c(0.05, 0.1, 0.25, 0.5)
+a_vec = c(0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5)
 X = seq(0, 36, by = 1/60)
 
 sat_curve <- tibble(Hour = rep(X, times = length(a_vec)), a = rep(a_vec, each = length(X))) %>% 
@@ -110,6 +110,7 @@ list_ward_thisthat_saveid <- list_ward %>%
   select(-id_from, -id_to)
 
 
+
 #### total duration of study in each ward ####
 ward_Ttotal <- timespent_mins %>% transmute(newID, Ttotal = difftime(N2, J1, units = "mins") %>% as.numeric) %>% unique
 
@@ -149,7 +150,8 @@ dur <- list_ward %>%
 
 
 # list_ward %>%
-cls = tibble(id = character(0), closeness = numeric(0))ward_names <- list_ward$newID %>% unique
+cls = tibble(id = character(0), closeness = numeric(0))
+ward_names <- list_ward$newID %>% unique
 for(ward in ward_names){
   
   
@@ -219,178 +221,179 @@ n_rands = 5
 
 if(F){
   
-a_vec = c(0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5)
-for(a in a_vec){
-  print(a)
-  
-
-
-DR_excla <- NULL
-for(w_id in w_id_vec){
-  print(w_id)
-  w_id_numeric = which(w_id_vec == w_id)
-  
-  # print(w_id)
-  ### total number of IDs in the dataset for this ward
-  # w_nIDs <- percrank %>% filter(newID == w_id) %>% pull(id) %>% unique %>% length
-  w_nIDs <- list_ward_thisthat_saveid %>% filter(newID == w_id) %>% pull(id) %>% unique %>% length
-  
-  n_to_exclude = round(w_nIDs * (1 - exclusion_level))
-  
-  # this_combcat = "HCW"
-  for(this_combcat in combcats){
-    # print(stat)
-    if(this_combcat == "All"){
-      percrank_ct = percrank %>% filter(newID == w_id)
-    } else if (this_combcat == "HCW") {
-      percrank_ct = percrank_status %>% filter(newID == w_id) %>% filter(this_status == "PE")
+  for(a in a_vec){
+    print(a)
+    
+    
+    
+    DR_excla <- NULL
+    for(w_id in w_id_vec){
+      print(w_id)
+      w_id_numeric = which(w_id_vec == w_id)
+      
+      # print(w_id)
+      ### total number of IDs in the dataset for this ward
+      # w_nIDs <- percrank %>% filter(newID == w_id) %>% pull(id) %>% unique %>% length
+      w_nIDs <- list_ward_thisthat_saveid %>% filter(newID == w_id) %>% pull(id) %>% unique %>% length
+      
+      n_to_exclude = round(w_nIDs * (1 - exclusion_level))
+      
+      # this_combcat = "HCW"
+      for(this_combcat in combcats){
+        # print(stat)
+        if(this_combcat == "All"){
+          percrank_ct = percrank %>% filter(newID == w_id)
+        } else if (this_combcat == "HCW") {
+          percrank_ct = percrank_status %>% filter(newID == w_id) %>% filter(this_status == "PE")
+        } else {
+          percrank_ct = percrank_combcat %>% filter(newID == w_id) %>% filter(this_combcatHosp == this_combcat)
+        }
+        for(excl in c("none"
+                      # , "rand1", "rand2", "rand3"
+                      , paste0("rand", 1:n_rands)
+                      , "deg"
+                      # , "btw", "cls"
+                      , "dur")){
+          # print(excl)
+          if(excl == "none"){
+            ids_toexclude_ward = percrank_ct %>% 
+              mutate(excluded = F) %>% 
+              filter(excluded) %>% 
+              pull(id)
+            
+          } else if (substr(excl, start = 1, stop = 3) == "ran") {
+            rand_seed_component = as.numeric(gsub("rand", "", excl))
+            set.seed(12345 * w_id_numeric * which(combcats == this_combcat)^2 + rand_seed_component*100)
+            ids_toexclude_ward <- percrank_ct$id %>% {sample(., size = min(length(.), n_to_exclude))}
+          } else if (excl == "deg"){
+            ids_toexclude_ward = percrank_ct %>% 
+              mutate(excluded = degree_revrandrank <= n_to_exclude) %>% 
+              filter(excluded) %>% 
+              pull(id)
+          } else if (excl == "btw"){
+            ids_toexclude_ward = percrank_ct %>% 
+              mutate(excluded = betweenness_revrandrank <= n_to_exclude) %>% 
+              filter(excluded) %>% 
+              pull(id)
+          } else if (excl == "cls"){
+            ids_toexclude_ward = percrank_ct %>% 
+              mutate(excluded = closeness_revrandrank <= n_to_exclude) %>% 
+              filter(excluded) %>% 
+              pull(id)
+          } else if (excl == "dur"){
+            ids_toexclude_ward = percrank_ct %>% 
+              mutate(excluded = hours_in_contact_revrandrank <= n_to_exclude) %>% 
+              filter(excluded) %>% 
+              pull(id)
+          }
+          
+          n_excluded = length(ids_toexclude_ward)
+          
+          # print(c(w_id, stat, excl, w_nIDs, n_to_exclude, n_excluded))
+          
+          DR_this <- list_ward_thisthat_saveid %>% 
+            mutate(pInfPerContact = sig(dur_mins, a/60)) %>%
+            filter(newID == w_id) %>% 
+            # filter(!(id %in% ids_toexclude_ward) #use this to exclude them altogether
+            #        , !(other_id %in% ids_toexclude_ward)
+            #        ) %>%
+            mutate(pInfPerContact_excl = case_when(id %in% ids_toexclude_ward ~ 0
+                                                   , other_id %in% ids_toexclude_ward ~ 0
+                                                   , T ~ pInfPerContact)
+                   # , dur_mins_excl = case_when(id %in% ids_toexclude_ward ~ 0
+                   #                           , other_id %in% ids_toexclude_ward ~ 0
+                   #                           , T ~ dur_mins)
+            ) %>% 
+            group_by(newID, wardType, id) %>% 
+            summarise(n_contacts = n()
+                      # , dur_mins = mean(dur_mins)
+                      , pInfPerContact = mean(pInfPerContact_excl)
+                      , .groups = "keep") %>% 
+            left_join(timespent %>%
+                        group_by(id) %>%
+                        summarise(total_mins = sum(total_mins))
+                      , by = "id") %>%
+            mutate(contacts_per_hour = n_contacts/(total_mins/60)) %>% 
+            # mutate(prod = contacts_per_hour*ifelse(is.na(dur_mins), 0, dur_mins)) %>% 
+            group_by(newID, wardType) %>% 
+            summarise_at(c("n_contacts", "contacts_per_hour", "pInfPerContact"
+                           # , "dur_mins", "prod"
+            ), ~mean(.x, na.rm = T)) %>% 
+            ungroup %>%
+            left_join(ward_hours2 %>% select(newID, Hbar)
+                      , by = "newID") %>%
+            mutate(daily_risk = pInfPerContact*contacts_per_hour*Hbar)
+          
+          
+          
+          if(is.null(DR_excla)){
+            DR_excla <- DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
+                                              , w_nIDs = w_nIDs
+                                              , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
+                                              , n_excluded = n_excluded
+                                              , pInfPerContact, contacts_per_hour, Hbar, daily_risk)   
+          } else {
+            DR_excla <- rbind(DR_excla
+                              , DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
+                                                      , w_nIDs = w_nIDs
+                                                      , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
+                                                      , n_excluded = n_excluded
+                                                      , pInfPerContact, contacts_per_hour, Hbar, daily_risk)      )
+          }
+          
+        }
+      }
+    }
+    
+    
+    # DR_excla <- read_csv("output/Didier/DR_excla.csv")
+    if(a == a_vec[1]){
+      DR_excla_master <- DR_excla %>% mutate(this_a = a)
     } else {
-      percrank_ct = percrank_combcat %>% filter(newID == w_id) %>% filter(this_combcatHosp == this_combcat)
+      DR_excla_master <- rbind(DR_excla_master
+                               , DR_excla %>% mutate(this_a = a))
     }
-    for(excl in c("none"
-                  # , "rand1", "rand2", "rand3"
-                  , paste0("rand", 1:n_rands)
-                  , "deg"
-                  # , "btw", "cls"
-                  , "dur")){
-      # print(excl)
-      if(excl == "none"){
-        ids_toexclude_ward = percrank_ct %>% 
-          mutate(excluded = F) %>% 
-          filter(excluded) %>% 
-          pull(id)
-        
-      } else if (substr(excl, start = 1, stop = 3) == "ran") {
-        rand_seed_component = as.numeric(gsub("rand", "", excl))
-        set.seed(12345 * w_id_numeric * which(combcats == this_combcat)^2 + rand_seed_component*100)
-          ids_toexclude_ward <- percrank_ct$id %>% {sample(., size = min(length(.), n_to_exclude))}
-      } else if (excl == "deg"){
-        ids_toexclude_ward = percrank_ct %>% 
-          mutate(excluded = degree_revrandrank <= n_to_exclude) %>% 
-          filter(excluded) %>% 
-          pull(id)
-      } else if (excl == "btw"){
-        ids_toexclude_ward = percrank_ct %>% 
-          mutate(excluded = betweenness_revrandrank <= n_to_exclude) %>% 
-          filter(excluded) %>% 
-          pull(id)
-      } else if (excl == "cls"){
-        ids_toexclude_ward = percrank_ct %>% 
-          mutate(excluded = closeness_revrandrank <= n_to_exclude) %>% 
-          filter(excluded) %>% 
-          pull(id)
-      } else if (excl == "dur"){
-        ids_toexclude_ward = percrank_ct %>% 
-          mutate(excluded = hours_in_contact_revrandrank <= n_to_exclude) %>% 
-          filter(excluded) %>% 
-          pull(id)
-      }
-      
-      n_excluded = length(ids_toexclude_ward)
-      
-      # print(c(w_id, stat, excl, w_nIDs, n_to_exclude, n_excluded))
-      
-      DR_this <- list_ward_thisthat_saveid %>% 
-        mutate(pInfPerContact = sig(dur_mins, a/60)) %>%
-        filter(newID == w_id) %>% 
-        # filter(!(id %in% ids_toexclude_ward) #use this to exclude them altogether
-        #        , !(other_id %in% ids_toexclude_ward)
-        #        ) %>%
-        mutate(pInfPerContact_excl = case_when(id %in% ids_toexclude_ward ~ 0
-                                               , other_id %in% ids_toexclude_ward ~ 0
-                                               , T ~ pInfPerContact)
-               # , dur_mins_excl = case_when(id %in% ids_toexclude_ward ~ 0
-               #                           , other_id %in% ids_toexclude_ward ~ 0
-               #                           , T ~ dur_mins)
-               ) %>% 
-        group_by(newID, id) %>% 
-        summarise(n_contacts = n()
-                  # , dur_mins = mean(dur_mins)
-                  , pInfPerContact = mean(pInfPerContact_excl)
-                  , .groups = "keep") %>% 
-        left_join(timespent %>%
-                      group_by(id) %>%
-                      summarise(total_mins = sum(total_mins))
-                  , by = "id") %>%
-        mutate(contacts_per_hour = n_contacts/(total_mins/60)) %>% 
-        # mutate(prod = contacts_per_hour*ifelse(is.na(dur_mins), 0, dur_mins)) %>% 
-        group_by(newID) %>% 
-        summarise_at(c("n_contacts", "contacts_per_hour", "pInfPerContact"
-                       # , "dur_mins", "prod"
-                       ), ~mean(.x, na.rm = T)) %>% 
-        ungroup %>%
-        left_join(ward_hours2 %>% select(newID, Hbar)
-                  , by = "newID") %>%
-        mutate(daily_risk = pInfPerContact*contacts_per_hour*Hbar)
-      
 
-      
-      if(is.null(DR_excla)){
-        DR_excla <- DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
-                                            , w_nIDs = w_nIDs
-                                            , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
-                                            , n_excluded = n_excluded
-                                            , pInfPerContact, contacts_per_hour, Hbar, daily_risk)   
-      } else {
-        DR_excla <- rbind(DR_excla
-                            , DR_this %>% transmute(newID, wardType, excl, combcat = this_combcat
-                                                    , w_nIDs = w_nIDs
-                                                    , supposed_to_exclude = ifelse(excl == "none", 0, n_to_exclude)
-                                                    , n_excluded = n_excluded
-                                                    , pInfPerContact, contacts_per_hour, Hbar, daily_risk)      )
-      }
-      
-    }
+
+    DR_excla <- DR_excla %>% 
+      {bind_rows(filter(., substr(excl, start = 1, stop = 3) != "ran")
+                 , filter(., substr(excl, start = 1, stop = 3) == "ran") %>% 
+                   group_by(newID, combcat) %>% 
+                   summarise_if(is.numeric, mean) %>% 
+                   mutate(excl = "rand"))} %>% 
+      arrange(newID, excl, combcat) %>% 
+      mutate(excludeby = case_when(excl == "none" ~ "No exclusion"
+                                   # , excl == "rand1" ~ "rand1"
+                                   # , excl == "rand2" ~ "rand2"
+                                   # , excl == "rand3" ~ "rand3"
+                                   , excl == "rand" ~ "Random"
+                                   , excl == "deg" ~ "Degree"
+                                   , excl == "btw" ~ "Betweenness"
+                                   , excl == "cls" ~ "Closeness"
+                                   , excl == "dur" ~ "Contact hours")) %>% 
+      mutate(excludeby = factor(excludeby, levels = c("No exclusion"
+                                                      , "Random"
+                                                      , "Degree", "Closeness", "Betweenness", "Contact hours")))
+    
+    
+    
+    
   }
-}
+  # write_csv(DR_excla_master, "output/Didier/DR_excla_master.csv")
 
-
-# DR_excla <- read_csv("output/Didier/DR_excla.csv")
-if(a == a_vec[1]){
-  DR_excla_master <- DR_excla %>% mutate(this_a = a)
+  write_csv(DR_excla_master, "output/DR_excla_master.csv")
 } else {
-  DR_excla_master <- rbind(DR_excla_master
-    , DR_excla %>% mutate(this_a = a))
+  DR_excla_master <- read_csv("output/DR_excla_master.csv")  
 }
 
 
-DR_excla <- DR_excla %>% 
-  {bind_rows(filter(., substr(excl, start = 1, stop = 3) != "ran")
-             , filter(., substr(excl, start = 1, stop = 3) == "ran") %>% 
-               group_by(newID, combcat) %>% 
-               summarise_if(is.numeric, mean) %>% 
-               mutate(excl = "rand"))} %>% 
-  arrange(newID, excl, combcat) %>% 
-  mutate(excludeby = case_when(excl == "none" ~ "No exclusion"
-                            # , excl == "rand1" ~ "rand1"
-                            # , excl == "rand2" ~ "rand2"
-                            # , excl == "rand3" ~ "rand3"
-                            , excl == "rand" ~ "Random"
-                            , excl == "deg" ~ "Degree"
-                            , excl == "btw" ~ "Betweenness"
-                            , excl == "cls" ~ "Closeness"
-                            , excl == "dur" ~ "Contact hours")) %>% 
-  mutate(excludeby = factor(excludeby, levels = c("No exclusion"
-                                            , "Random"
-                                            , "Degree", "Closeness", "Betweenness", "Contact hours")))
-  
-
-
-
-}
-# write_csv(DR_excla_master, "output/Didier/DR_excla_master.csv")
-
-write_csv(DR_excla_master, "output/DR_excla_master.csv")
-}
-
-DR_excla_master <- read_csv("output/DR_excla_master.csv")
 
 
 DR_excla <- DR_excla_master %>% 
   rename(a = this_a) %>% 
   {bind_rows(filter(., substr(excl, start = 1, stop = 3) != "ran")
              , filter(., substr(excl, start = 1, stop = 3) == "ran") %>% 
-               group_by(newID, DidierName, combcat, a) %>% 
+               group_by(newID, wardType, combcat, a) %>% 
                summarise_if(is.numeric, mean) %>% 
                mutate(excl = "rand"))} %>% 
   arrange(newID, excl, combcat, a) %>% 
@@ -439,7 +442,7 @@ DR_pctChange_itt_bar = DR_pctChange %>%
 
 DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
   filter(excludeby %in% c("Random", "Degree", "Contact hours")) %>% 
-  mutate(combcat = factor(combcat, levels = c("Patient", "HCW", "All"))) %>% 
+  mutate(combcat = factor(combcat, levels = c("All", "HCW", "Patient"))) %>% 
   filter(!is.na(combcat)) %>% 
   mutate(excludeby = fct_relabel(excludeby, function(x) gsub("Contact hours", "Contact\nhours", x))) %>% 
   # mutate(which_row = case_when(combcat %in% "All" ~ "row1"
@@ -455,7 +458,9 @@ DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
   )
   , size=0.5,col="red", width = .5) +
   # facet_grid(which_row~factor(combcat, levels = combcats), drop = T) + 
-  facet_grid(paste0("a=", a)~combcat, scales = "free_y") + 
+  facet_grid(paste0("a=", a)~combcat
+             , scales = "free_y"
+             ) + 
   theme_bw() + 
   theme(legend.background = element_rect(linetype = 1, size = 0.5, colour = 1)
         # , axis.title.x = element_text(hjust = 0.1)
@@ -467,7 +472,7 @@ DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
                                 , `Adult ICU`=0,`Internal medicine`=1,`Adult emergency`=2
                                 , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5)) + 
   labs(y = "Reduction in number of secondary infections per day per infected individual"
-       , x = "High risk individuals targeted by"
+       , x = "High risk individuals targeted by..."
        # , caption = expression(frac(DAR[baseline]-DAR,DAR[baseline]))
        , shape = "Ward type") #+ 
 # coord_cartesian(ylim = c(0, NA))
@@ -475,5 +480,11 @@ DR_pctChange %>% left_join(DR_pctChange_itt_bar) %>%
 ggsave(paste0("output/Fig_asensitivity.pdf"), device = "pdf"
        , width = 20, height = 30, units = "cm")
 
- 
+
+# ggsave(paste0("output/Fig_asensitivity_yfixed.pdf"), device = "pdf"
+#        , width = 20, height = 30, units = "cm")
+
+ggsave(paste0("output/Fig_asensitivity_yfixed.jpg"), device = "jpeg"
+       , width = 30, height = 32, units = "cm", dpi = 600)
+
 

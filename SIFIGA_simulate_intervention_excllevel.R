@@ -10,12 +10,12 @@ library(GGally)
 library(igraph)
 
 
-# list_ward <- read_csv("input/list_ward_complete.csv")
-# admission <- read_csv("input/id_function_complete.csv")
-# timespent_mins <- read_csv(file = "input/met_timespent_mins_complete.csv")
-list_ward <- read_csv("input/list_ward_partial.csv")
-admission <- read_csv("input/id_function_partial.csv")
-timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
+list_ward <- read_csv("input/Private/list_ward_complete.csv")
+admission <- read_csv("input/Private/id_function_complete.csv")
+timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv")
+# list_ward <- read_csv("input/list_ward_partial.csv")
+# admission <- read_csv("input/id_function_partial.csv")
+# timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
 
 timespent <- timespent_mins %>% 
@@ -128,7 +128,8 @@ dur <- list_ward %>%
 
 
 # list_ward_shift %>%
-cls = tibble(id = character(0), closeness = numeric(0))ward_names <- list_ward$newID %>% unique
+cls = tibble(id = character(0), closeness = numeric(0))
+ward_names <- list_ward$newID %>% unique
 for(ward in ward_names){
   
   
@@ -197,7 +198,7 @@ exclusion_vec = c(0, 0.01, 0.05, 0.1, 0.15, 0.2)
 # this_combcat = "Visitor"
 # excl = "deg"
 
-if(T){ #if statement because the analysis can take a long time
+if(F){ #if statement because the analysis can take a long time
 
 DR_excl <- NULL
 
@@ -286,7 +287,7 @@ for(exclusion_level in exclusion_vec){
                  #                           , other_id %in% ids_toexclude_ward ~ 0
                  #                           , T ~ dur_mins)
           ) %>% 
-          group_by(newID, id) %>% 
+          group_by(newID, wardType, id) %>% 
           summarise(n_contacts = n()
                     # , dur_mins = mean(dur_mins)
                     , pInfPerContact = mean(pInfPerContact_excl)
@@ -297,7 +298,7 @@ for(exclusion_level in exclusion_vec){
                     , by = "id") %>%
           mutate(contacts_per_hour = n_contacts/(total_mins/60)) %>% 
           # mutate(prod = contacts_per_hour*ifelse(is.na(dur_mins), 0, dur_mins)) %>% 
-          group_by(newID) %>% 
+          group_by(newID, wardType) %>% 
           summarise_at(c("n_contacts", "contacts_per_hour", "pInfPerContact"
                          # , "dur_mins", "prod"
           ), ~mean(.x, na.rm = T)) %>% 
@@ -330,28 +331,27 @@ for(exclusion_level in exclusion_vec){
 }
 
 
-write_csv(DR_excl, "output/DR_excl_excllevel.csv")
+  write_csv(DR_excl, "output/DR_excl_excllevel.csv")
+} else {
+  DR_excl <- read_csv("output/DR_excl_excllevel.csv")
 }
 
-DR_excl <- read_csv("output/DR_excl_excllevel.csv")
+
 
 
 DR_excl_excllevel <- DR_excl %>% 
   {bind_rows(filter(., substr(excl, start = 1, stop = 3) != "ran")
              , filter(., substr(excl, start = 1, stop = 3) == "ran") %>% 
-               group_by(newID, newID, combcat, exclusion_level) %>% 
+               group_by(newID, combcat, exclusion_level) %>% 
                summarise_if(is.numeric, mean) %>% 
                mutate(excl = "rand"))} %>% 
   # mutate(wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
   #                                    , wardType == "Infectious Diseases" ~ "Infectious diseases"
   #                                    , T ~ wardType)
   # ) %>%
-  mutate(wardTypeCombine = case_when(DidierName == "Infectious Diseases" ~ "Infectious diseases"
-                                     , DidierName %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
-                                     , DidierName == "Pediatric" ~ "General paediatrics"
-                                     , DidierName == "Neonatology" ~ "Neonatal ICU"
-                                     , DidierName == "Pediatric emergency" ~ "Paediatric emergency"
-                                     , T ~ DidierName) 
+  mutate(wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
+                                     , wardType == "Infectious Diseases" ~ "Infectious diseases"
+                                     , T ~ wardType) 
   ) %>% 
   mutate(wardTypeCombine = wardTypeCombine %>% factor %>% fct_infreq) %>% 
   arrange(newID, excl, combcat, exclusion_level) %>% 
@@ -393,6 +393,7 @@ DR_pctChange_excllevel_itt_bar = DR_pctChange_excllevel %>%
 
 DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
   filter(excludeby %in% c("Random", "Degree", "Contact hours")) %>% 
+  mutate(combcat = factor(combcat, levels = c("All", "HCW", "Patient"))) %>% 
   mutate(excludeby = fct_recode(excludeby
                                 , `Total contact hours` = "Contact hours"
                                 , `Total distinct contacts` = "Degree"
@@ -405,7 +406,8 @@ DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
                     , ymax = median_DR_reduction
   )
   , size=0.2,col="red", width = .7) +
-  facet_grid(excludeby~factor(combcat, levels = combcats)) + 
+  # facet_grid(excludeby~factor(combcat, levels = combcats)) +
+  facet_grid(excludeby~combcat) +
   theme_bw() + 
   guides(colour = F) +
   theme(strip.background = element_rect(fill = NA)) + 
@@ -419,7 +421,7 @@ DR_pctChange_excllevel %>% left_join(DR_pctChange_excllevel_itt_bar) %>%
        , shape = "Ward type") #+ 
 # coord_cartesian(ylim = c(0, NA))
 
-ggsave("output/Fig_DARreduction_levels.pdf", device = "pdf"
-       , width = 30, height = 20, units = "cm")
+ggsave("output/Fig_DARreduction_levels.jpg", device = "jpeg"
+       , width = 30, height = 20, units = "cm", dpi = 600)
 
- 
+

@@ -58,12 +58,12 @@ id,firstDate,lastDate,catHosp,status,ward_id,wardType,newID
 018-0131-A-D,2020-05-19,2020-05-19,patient,PA,18,Geriatry,Geriatry #1
 018-0135-N-M,2020-05-19,2020-05-19,aux nurse,PE,18,Geriatry,Geriatry #1
 018-0136-T-Y,2020-05-19,2020-05-19,aux nurse,PE,18,Geriatry,Geriatry #1
-014-0005-V-E,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0017-V-G,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0018-F-C,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0021-N-T,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0027-N-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0039-H-O,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
+014-0005-V-E,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0017-V-G,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0018-F-C,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0021-N-T,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0027-N-A,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0039-H-O,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
 009-0013-N-N,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
 009-0014-H-R,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
 009-0016-B-M,2020-04-20,2020-04-20,administration,PE,9,Pneumology,Pneumology
@@ -91,62 +91,62 @@ id,firstDate,lastDate,catHosp,status,ward_id,wardType,newID
 009-0070-B-A,2020-04-20,2020-04-20,physician,PE,9,Pneumology,Pneumology
 009-0072-C-K,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
 009-0077-Z-O,2020-04-20,2020-04-20,nurse,PE,9,Pneumology,Pneumology
-014-0076-L-I,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0078-C-P,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0079-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0080-F-A,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0081-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0082-S-J,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0084-D-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0087-B-E,2020-05-21,2020-05-21,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0089-D-L,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
-014-0090-V-A,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
-014-0091-C-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0097-S-H,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0098-S-M,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0110-M-A,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0116-P-S,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0118-T-S,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0119-N-C,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0130-C-M,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0131-S-A,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0134-C-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0136-P-C,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0138-W-L,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0144-B-T,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0147-R-A,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0154-L-Y,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0155-L-H,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0162-W-J,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0167-L-D,2020-05-21,2020-05-21,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0184-G-D,2020-05-21,2020-05-21,logistic,PE,14,Pediatric emergency,Paediatric emergency
-014-0185-B-P,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0186-B-A,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0193-T-M,2020-05-21,2020-05-21,logistic,PE,14,Pediatric emergency,Paediatric emergency
-014-0196-C-N,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0206-F-F,2020-05-22,2020-05-22,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0207-F-I,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0223-G-A,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
-014-0224-N-G,2020-05-21,2020-05-21,investigation,PE,14,Pediatric emergency,Paediatric emergency
-014-0228-Z-E,2020-05-22,2020-05-22,aux nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0233-P-A,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0237-R-E,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0238-R-M,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0242-D-T,2020-05-21,2020-05-21,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0249-C-M,2020-05-21,2020-05-21,nurse,PE,14,Pediatric emergency,Paediatric emergency
-014-0261-L-T,2020-05-21,2020-05-21,visitor,V,14,Pediatric emergency,Paediatric emergency
-014-0266-G-A,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0270-B-P,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0272-N-L,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0273-A-V,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0279-F-M,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0298-M-T,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0304-T-S,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0306-M-A,2020-05-22,2020-05-22,other,PE,14,Pediatric emergency,Paediatric emergency
-014-0331-S-C,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0334-G-M,2020-05-22,2020-05-22,patient,PA,14,Pediatric emergency,Paediatric emergency
-014-0356-M-O,2020-05-22,2020-05-22,ext physician,PE,14,Pediatric emergency,Paediatric emergency
-014-0365-F-E,2020-05-22,2020-05-22,physician,PE,14,Pediatric emergency,Paediatric emergency
+014-0076-L-I,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0078-C-P,2020-05-21,2020-05-21,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0079-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0080-F-A,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0081-M-M,2020-05-21,2020-05-21,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0082-S-J,2020-05-21,2020-05-21,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0084-D-C,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0087-B-E,2020-05-21,2020-05-21,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0089-D-L,2020-05-21,2020-05-21,investigation,PE,14,Paediatric emergency,Paediatric emergency
+014-0090-V-A,2020-05-21,2020-05-21,investigation,PE,14,Paediatric emergency,Paediatric emergency
+014-0091-C-C,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0097-S-H,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0098-S-M,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0110-M-A,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0116-P-S,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0118-T-S,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0119-N-C,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0130-C-M,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0131-S-A,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0134-C-A,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0136-P-C,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0138-W-L,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0144-B-T,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0147-R-A,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0154-L-Y,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0155-L-H,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0162-W-J,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0167-L-D,2020-05-21,2020-05-21,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0184-G-D,2020-05-21,2020-05-21,logistic,PE,14,Paediatric emergency,Paediatric emergency
+014-0185-B-P,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0186-B-A,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0193-T-M,2020-05-21,2020-05-21,logistic,PE,14,Paediatric emergency,Paediatric emergency
+014-0196-C-N,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0206-F-F,2020-05-22,2020-05-22,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0207-F-I,2020-05-22,2020-05-22,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0223-G-A,2020-05-21,2020-05-21,investigation,PE,14,Paediatric emergency,Paediatric emergency
+014-0224-N-G,2020-05-21,2020-05-21,investigation,PE,14,Paediatric emergency,Paediatric emergency
+014-0228-Z-E,2020-05-22,2020-05-22,aux nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0233-P-A,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0237-R-E,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0238-R-M,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0242-D-T,2020-05-21,2020-05-21,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0249-C-M,2020-05-21,2020-05-21,nurse,PE,14,Paediatric emergency,Paediatric emergency
+014-0261-L-T,2020-05-21,2020-05-21,visitor,V,14,Paediatric emergency,Paediatric emergency
+014-0266-G-A,2020-05-22,2020-05-22,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0270-B-P,2020-05-22,2020-05-22,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0272-N-L,2020-05-22,2020-05-22,ext physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0273-A-V,2020-05-22,2020-05-22,ext physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0279-F-M,2020-05-22,2020-05-22,ext physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0298-M-T,2020-05-22,2020-05-22,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0304-T-S,2020-05-22,2020-05-22,physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0306-M-A,2020-05-22,2020-05-22,other,PE,14,Paediatric emergency,Paediatric emergency
+014-0331-S-C,2020-05-22,2020-05-22,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0334-G-M,2020-05-22,2020-05-22,patient,PA,14,Paediatric emergency,Paediatric emergency
+014-0356-M-O,2020-05-22,2020-05-22,ext physician,PE,14,Paediatric emergency,Paediatric emergency
+014-0365-F-E,2020-05-22,2020-05-22,physician,PE,14,Paediatric emergency,Paediatric emergency
 002-0059-B-J,2020-05-25,2020-05-25,patient,PA,2,Neonatal ICU,Neonatal ICU
 002-0066-E-S,2020-05-25,2020-05-25,reeducation staff,PE,2,Neonatal ICU,Neonatal ICU
 002-0073-M-M,2020-05-25,2020-05-25,other,PE,2,Neonatal ICU,Neonatal ICU

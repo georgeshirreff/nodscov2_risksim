@@ -16,12 +16,12 @@ library(lemon)
 #### read data ####
 ###################
 
-# list_ward <- read_csv("input/Private/list_ward_complete.csv")
-# admission <- read_csv("input/Private/id_function_complete.csv")
-# timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv")
-list_ward <- read_csv("input/list_ward_partial.csv")
-admission <- read_csv("input/id_function_partial.csv")
-timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
+list_ward <- read_csv("input/Private/list_ward_complete.csv")
+admission <- read_csv("input/Private/id_function_complete.csv")
+timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv")
+# list_ward <- read_csv("input/list_ward_partial.csv")
+# admission <- read_csv("input/id_function_partial.csv")
+# timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
 Label_tib <- read_csv("input/newID_order.csv")
 

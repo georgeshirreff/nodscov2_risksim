@@ -17,12 +17,12 @@ library(egg)
 #### read data ####
 ###################
 
-# list_ward <- read_csv("input/list_ward_complete.csv")
-# admission <- read_csv("input/id_function_complete.csv")
-# timespent_mins <- read_csv(file = "input/met_timespent_mins_complete.csv")
-list_ward <- read_csv("input/list_ward_partial.csv")
-admission <- read_csv("input/id_function_partial.csv")
-timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
+list_ward <- read_csv("input/Private/list_ward_complete.csv")
+admission <- read_csv("input/Private/id_function_complete.csv")
+timespent_mins <- read_csv(file = "input/Private/met_timespent_mins_complete.csv")
+# list_ward <- read_csv("input/list_ward_partial.csv")
+# admission <- read_csv("input/id_function_partial.csv")
+# timespent_mins <- read_csv(file = "input/met_timespent_mins_partial.csv")
 
 Label_tib <- read_csv("input/newID_order.csv")
 
@@ -201,6 +201,29 @@ complete_DR_thisstatus <- complete_DR_status %>%
          , dur_mins = NA) %>% 
   select(newID, this_status, contacts_per_hour, dur_mins, pInfPerContact, Hbar, daily_risk)
 
+complete_DR_thatstatus <- complete_DR_status %>% 
+  group_by(newID, that_status) %>% 
+  summarise(contacts_per_hour = sum(contacts_per_hour, na.rm = T)
+            , daily_risk = sum(daily_risk, na.rm = T)
+            , Hbar = Hbar[1]) %>% 
+  mutate(pInfPerContact = daily_risk/Hbar/contacts_per_hour
+         , dur_mins = NA) %>% 
+  select(newID, that_status, contacts_per_hour, dur_mins, pInfPerContact, Hbar, daily_risk)
+
+complete_DR_thatstatus %>% 
+  filter(that_status == "PE") %>% 
+  arrange(daily_risk)
+
+complete_DR_check <- complete_DR_status %>% 
+  group_by(newID) %>% 
+  summarise(contacts_per_hour = sum(contacts_per_hour, na.rm = T)
+            , daily_risk = sum(daily_risk, na.rm = T)
+            , Hbar = Hbar[1]) %>% 
+  mutate(pInfPerContact = daily_risk/Hbar/contacts_per_hour
+         , dur_mins = NA) %>% 
+  select(newID, contacts_per_hour, dur_mins, pInfPerContact, Hbar, daily_risk)
+
+
 #### prepare boxplot accessory ####
 
 whisker_top = function(x) {
@@ -231,17 +254,21 @@ boxplot_DR_gen <- complete_DR_gen %>%
 
 
 
+
+
 #### make main plot ####
 
 # complete_DR_gen$daily_risk %>% range
 DR_plot <-
   rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
       , complete_DR_thisstatus %>% mutate(that_status = "ALL")
+      # , complete_DR_thatstatus %>% mutate(this_status = "ALL")
       , complete_DR_status) %>% 
   mutate_at(c("this_status", "that_status"), function(x) factor(x, levels = c("ALL", "PA", "V", "PE"))) %>% 
   # mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
   mutate_at(c("that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
   mutate_at(c("this_status"), function(x) factor(x, labels = paste0("Index case = ", c("any", "patient", "visitor", "healthcare worker")))) %>% 
+  mutate(newID = factor(newID, levels = Label_tib$newID)) %>% 
   ggplot(aes(x = newID, y = daily_risk, fill = that_status)) + 
   geom_bar(stat = "identity", position = position_dodge(width=0.8)
            , width = 0.8
@@ -259,26 +286,73 @@ DR_plot <-
         , strip.background.y = element_rect(fill = "white")
         , legend.direction = "horizontal", legend.position = "top"
   ) + 
+  coord_cartesian(ylim = c(0, 0.8))+ 
   geom_vline(xintercept = seq(0.5, by = 1, length.out = 15), color="lightgray", size=.5, alpha=.5) # set vertical lines between x groups
+
 
 DR_boxplot <- rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
       , complete_DR_thisstatus %>% mutate(that_status = "ALL")
       , complete_DR_status) %>% 
   mutate_at(c("this_status", "that_status"), function(x) factor(x, levels = c("ALL", "PA", "V", "PE"))) %>% 
   mutate_at(c("this_status", "that_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>% 
-  ggplot(aes(y = daily_risk)) + geom_boxplot() + 
+  # left_join(wardType_combineref) %>% 
+  ggplot(aes(y = daily_risk)) + 
+  geom_boxplot() +
+  # geom_point(aes(x = 0, shape = wardTypeCombine, colour = newID), position = position_jitter(width = 0.3)) +
   facet_grid(this_status~.) + 
   theme_bw() + 
   theme(strip.text = element_blank()
         , axis.title.y = element_blank()
         , axis.text.y = element_blank()
         , axis.text.x = element_blank())
+DR_boxplot
 
+# wardType_combineref = list_ward %>% 
+#   select(newID, wardType) %>% unique %>% 
+#   transmute(newID, wardTypeCombine = case_when(wardType %in%  c("Medical ICU", "Surgical ICU") ~ "Adult ICU"
+#                                      , wardType == "Infectious Diseases" ~ "Infectious diseases"
+#                                      , T ~ wardType) 
+#   )
+# 
+# wardType_shapes = c(`Neonatal ICU`=15,`General paediatrics`=16,`Paediatric emergency`=17
+#                               , `Adult ICU`=0,`Internal medicine`=1,`Adult emergency`=2
+#                               , `Infectious diseases`=3,`Geriatry`=4,`Pneumology`=5) 
+# 
+# 
+# DR_jittershape <- 
+#   rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
+#                     , complete_DR_thisstatus %>% mutate(that_status = "ALL")
+#                     # , complete_DR_status
+#         ) %>%
+#   mutate_at(c("this_status"), function(x) factor(x, levels = c("ALL", "PA", "V", "PE"))) %>%
+#   mutate_at(c("this_status"), function(x) factor(x, labels = c("All", "Patients", "Visitors", "HCWs"))) %>%
+#   left_join(wardType_combineref) %>% 
+#   ggplot(aes(x = 0, y = daily_risk, shape = wardTypeCombine)) + 
+#   geom_point(position = position_jitter(width = 0.1), colour = "grey50") +
+#   coord_cartesian(xlim = c(-1, 1)
+#                   , ylim = c(0, 0.8)) + 
+#   facet_grid(this_status~.) + 
+#   scale_shape_manual(values = wardType_shapes) + 
+#   theme_bw() + 
+#   guides(colour = F) + 
+#   theme(strip.text = element_blank()
+#         , axis.title.y = element_blank()
+#         , axis.text.y = element_blank()
+#         , axis.text.x = element_blank()
+#         , axis.title.x = element_blank()
+#         , axis.ticks.x = element_blank()
+#   ) + 
+#   labs(shape = "Ward type")
+  
 
 DR_barplot_boxplot <- egg::ggarrange(DR_plot, DR_boxplot, ncol = 2, widths = c(20, 3))
 
 ggsave(DR_barplot_boxplot, filename = "output/Fig_DAR_boxplots.pdf", width = 23, height = 25, units = "cm", device = "pdf")
 
+
+# DR_barplot_jitter <- egg::ggarrange(DR_plot, DR_jittershape, ncol = 2, widths = c(20, 7))
+# 
+# ggsave(DR_barplot_jitter, filename = "output/Fig_DAR_jitterplots.pdf", width = 23, height = 30, units = "cm", device = "pdf")
 
 # additional plot showing averagehours spent on ward
 
@@ -345,11 +419,8 @@ complete_DR_thisstatus %>%
   summarise(range(daily_risk, na.rm = T))
 
 complete_DR_thisstatus %>% 
-  left_join(newID_COVIDstat %>%
-              transmute(newID, newname = paste0("#", newID, ". ", DidierName, "\n(", COVIDstat, ")")) %>%
-              mutate(newname = factor(newname, levels = newname))) %>%
-  
-  mutate(PED = grepl("Ped", newname) | grepl("Neonat", newname)) %>% 
+  left_join(Label_tib) %>% 
+  mutate(PED = grepl("Ped", newID) | grepl("Neonat", newID)) %>% 
   filter(this_status == "V") %>% 
   arrange(daily_risk) %>% 
   select(daily_risk, PED)
@@ -377,17 +448,10 @@ complete_DR_status %>%
 rbind(complete_DR_gen %>% mutate(this_status = "ALL", that_status = "ALL")
       , complete_DR_thisstatus %>% mutate(that_status = "ALL")
       , complete_DR_status) %>% 
-  group_by(this_status, that_status, emerg = grepl("emergency", newname)) %>% 
+  group_by(this_status, that_status, emerg = grepl("emergency", newID)) %>% 
   summarise_at(c("pInfPerContact", "contacts_per_hour", "Hbar"), function(x) mean(x, na.rm = T)) %>% 
   print(n = 100)
 
 complete_DR_status %>% 
   filter(this_status == "PA") %>% 
-  filter(that_status == "PA") %>% 
-  left_join(newID_COVIDstat %>%
-              transmute(ward_id
-                        , newname = newID
-                        # , newname = paste0(newID, "\n(", COVIDstat, ")")
-              ) %>%
-              mutate(newname = factor(newname, levels = newname))) 
-  
+  filter(that_status == "PA")
