@@ -82,11 +82,36 @@ list_ward_thisthat <- list_ward %>%
          , that_catHosp = case_when(direction == "from" ~ catHosp_to
                                     , direction == "to" ~ catHosp_from))
 
+
 contact_hours = list_ward_thisthat %>% 
   group_by(newID, id) %>% 
   summarise(dur_mins = sum(dur_mins)) %>% 
  mutate(hours_in_contact = dur_mins/60)
 
+
+
+list_ward_thisthat %>% 
+  filter(direction == "from") %>%
+  mutate(newID = factor(newID, levels = Label_tib$newID)) %>% 
+  group_by(newID, id) %>% 
+  summarise(total_contacts = n()) %>% 
+  left_join(contact_hours) %>% 
+  mutate(contacts_per_day = total_contacts*24/(hours_in_contact)) %>% 
+  ggplot(aes(x = newID, 
+             y = contacts_per_day
+             # y = total_contacts
+  )) + 
+  geom_boxplot() + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  labs(x = "", 
+       y= "Nombre de contacts / 24h (mesuré)"
+       # y= "Nombre de contacts / personne (mesuré)"
+  )
+
+ggsave("~/nodscov2_networkAnalysis/output/Didier/Buzz/FigureA_perday.pdf", device = "pdf", width = 20, height = 15, units = "cm")
+
+ggsave("~/nodscov2_networkAnalysis/output/Didier/Buzz/FigureA_total.pdf", device = "pdf", width = 20, height = 15, units = "cm")
 
 
 ############################
@@ -130,6 +155,7 @@ for(titl in ward_names){
   # produce graph plot for this ward
   gg_net <- ggraph(mygraph,  layout = 'kk') + 
     geom_edge_link(alpha = 0.1) +
+    geom_node_point(color = "white", fill = "white", size = 3, alpha = 0.2) + 
     geom_node_text(aes(color = status, label = catSymbol), size=2) + 
     scale_color_manual(name="Status", values=color_man_nb) + 
     theme_bw() + theme(axis.line=element_blank()
@@ -199,9 +225,9 @@ gg_nets_centr[["legend"]] <- pers_legend
 
 
 # output this plot
-ggsave(# filename = "output/Didier/BigPaper/Fig_networks_categorised.pdf"
-  filename = "output/Fig_networks_categorised.jpg"
-  , arrangeGrob(arrangeGrob(grobs = gg_nets_split
+ggsave(#filename = "output/Didier/BigPaper/Fig_networks_categorised.pdf", 
+  filename = "output/Fig_networks_categorised.jpg",
+  arrangeGrob(arrangeGrob(grobs = gg_nets_split
                             , left = textGrob("Split", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
                 , arrangeGrob(grobs = gg_nets_even
                               , left = textGrob("Even", gp = gpar(col = "black", fontsize = 20)), ncol = 4)
